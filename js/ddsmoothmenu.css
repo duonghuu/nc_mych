@@ -1,0 +1,128 @@
+.ddsmoothmenu {
+	float:left;
+	width: 100%;
+	margin: 5px 0px 0px 0px;
+	height: 40px;
+}
+.ddsmoothmenu ul {
+	width: 100%;
+	z-index:100;
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+/*Top level list items*/
+.ddsmoothmenu ul li {
+	float: left;
+	position: relative;
+	padding-right: 1px;
+
+	
+}
+/*Top level menu link items style*/
+.ddsmoothmenu ul li a {
+	text-align: center;
+	display: block;
+	text-transform: 0px 0px 2px 2px #fff;
+	color: #fff;
+	height:40px;
+	line-height:36px;
+	font-size:17px;
+	border: 1px solid rgba(255,255,255,0);
+	padding: 0px 22px 0px 22px;
+	margin:0px 5px 0px 5px;
+	text-transform:uppercase;
+	font-family: 'SFUEurostileCondensed'; 
+	text-decoration: none;
+}
+.ddsmoothmenu ul li.icon { background: url(../images/gach_menu.png) no-repeat right top;}
+* html .ddsmoothmenu ul li a { /*IE6 hack to get sub menu links to behave correctly*/
+	display: inline-block;
+}
+.ddsmoothmenu ul li.active a { }
+.ddsmoothmenu ul li a:link, .ddsmoothmenu ul li a:visited {
+	color:#fff;
+}
+.ddsmoothmenu ul li a.selected,.ddsmoothmenu ul li.active a,.ddsmoothmenu ul li a:hover{
+	border: 1px solid #83ad82 ;
+	box-shadow: 0px 0px 0px 1px #382014;
+	background:#3a7d38;
+}
+
+/*1st sub level menu*/
+.ddsmoothmenu ul li ul {
+	position: absolute;
+	display: none; /*collapse all sub menus to begin with*/
+	visibility:visible !important;
+	background:#006f1a;
+	width: 300px;
+	top: 45px !important;
+}
+
+.ddsmoothmenu ul li ul li {
+	display: list-item;
+	float: left;
+	width: 100%;
+	margin-right:0px;
+	padding-right:0px;
+	
+	background: rgba(255,255,255,0);
+}
+.ddsmoothmenu ul li ul li a{
+	padding:0px 0px 0px 20px;
+	width: 100%;
+	float: left;
+	height:35px;
+	line-height:35px;
+	font-size: 18px;
+	border: 0px !important;
+	box-shadow: none !important;
+	text-transform: capitalize;
+	margin:0px !important;
+	border-top: 1px solid #fff !important;
+	background: rgba(255,255,255,0) !important;
+	color: #fff !important;
+	text-align: left;
+	}
+/*All subsequent sub menu levels vertical offset after 1st level sub menu */
+.ddsmoothmenu ul li ul li ul {
+	margin-left:2px;
+	top: 0px !important;
+}
+/* Sub level menu links style */
+.ddsmoothmenu ul li ul li a:hover,.ddsmoothmenu ul li ul a.selected{
+	background: rgba(255,255,255,0.2) !important;
+	color: #fff;
+}
+.ddsmoothmenu ul li ul li ul{
+margin:0px;
+}
+/* Holly Hack for IE \*/
+* html .ddsmoothmenu {
+	height: 1%;
+} /*Holly Hack for IE7 and below*/
+/* ######### CSS classes applied to down and right arrow images  ######### */
+
+.downarrowclass {
+	position: absolute;
+	top: 12px;
+	right: 7px;
+}
+.rightarrowclass {
+	position: absolute;
+	top: 6px;
+	right: 5px;
+}
+/* ######### CSS for shadow added to sub menus  ######### */
+
+.ddshadow { /*shadow for NON CSS3 capable browsers*/
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 0;
+	height: 0;
+	background: silver;
+}
+.toplevelshadow { /*shadow opacity for NON CSS3 capable browsers. Doesn't work in IE*/
+	opacity: 0.8;
+}

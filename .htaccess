@@ -1,0 +1,97 @@
+## EXPIRES CACHING ##
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresByType image/jpg "access 1 year"
+ExpiresByType image/jpeg "access 1 year"
+ExpiresByType image/gif "access 1 year"
+ExpiresByType image/png "access 1 year"
+ExpiresByType text/css "access 1 month"
+ExpiresByType text/html "access 1 month"
+ExpiresByType application/pdf "access 1 month"
+ExpiresByType text/x-javascript "access 1 month"
+ExpiresByType application/x-shockwave-flash "access 1 month"
+ExpiresByType image/x-icon "access 1 year"
+ExpiresDefault "access 1 month"
+</IfModule>
+## EXPIRES CACHING ##
+
+# 1 year
+<FilesMatch ".(ico|pdf|flv)$">
+Header set Cache-Control "max-age=29030400, public"
+</FilesMatch>
+# 1 WEEK
+<FilesMatch ".(jpg|jpeg|png|gif|swf)$">
+Header set Cache-Control "max-age=31536000, public"
+</FilesMatch>
+# 2 DAYS
+<FilesMatch ".(xml|txt|css|js)$">
+Header set Cache-Control "max-age=31536000, proxy-revalidate"
+</FilesMatch>
+# 2 DAYS
+<FilesMatch ".(html|htm|php)$">
+Header set Cache-Control "max-age=31536000, private, proxy-revalidate"
+</FilesMatch>
+RewriteEngine on
+Options -Indexes
+<FilesMatch ".(xml|txt|css|js|woff|woff2)$">
+Header set Cache-Control "max-age=31536000, proxy-revalidate"
+</FilesMatch>
+# Helicon Ape version 3.1.0.115
+
+RewriteEngine On
+DirectoryIndex indedx.html index.php
+
+
+ErrorDocument 404 /404.php
+
+RewriteRule ^admin$ admin/ [L]
+RewriteRule ^admin/$ admin/ [L]
+
+
+RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([0-9]+)x([0-9]+)x([0-9]+)/(.*)\.(jpg|jpeg|png|gif)$  timthumb.php?src=upload/$2/$6.$7&h=$4&w=$3&zc=$5&q=100  [L]
+
+RewriteRule ^san-pham-cung-nghanh.html&([a-zA-Z0-9_-]+)$ index.php?com=san-pham-cung-nghanh&id=$1  [L]
+RewriteRule ^san-pham-tuong-tu.html&([a-zA-Z0-9_-]+)$ index.php?com=san-pham-tuong-tu&id=$1  [L]
+RewriteRule ^tag-tu-khoa.html&([a-zA-Z0-9_-]+)$ index.php?com=tag-tu-khoa&id=$1  [L]
+
+RewriteRule ^kich-hoat-mail/([a-zA-Z0-9_-]+).html$ index.php?com=kich-hoat-mail&capcha=$1  [L]
+
+RewriteRule ^([a-zA-Z0-9_-]+).htm$	index.php?com=$1 [L]
+RewriteRule ^([a-zA-Z0-9_-]+).html$	index.php?com=$1 [L]
+RewriteRule ^([a-zA-Z0-9_-]+).htm&page=([0-9]+)$ index.php?com=$1&page=$2 [L]
+RewriteRule ^([a-zA-Z0-9_-]+).htm&p=([0-9]+)$ index.php?com=$1&page=$2 [L]
+
+RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/$ index.php?com=$1&idl=$2 [L]
+RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/&page=([0-9]+)$ index.php?com=$1&idl=$2&page=$3 [L]
+RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/&p=([0-9]+)$ index.php?com=$1&idl=$2&page=$3 [L]
+
+RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+).html$ index.php?com=$1&id=$2 [L]
+RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+).html&page=([0-9]+)$ index.php?com=$1&id=$2&page=$3 [L]
+RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+).html&p=([0-9]+)$ index.php?com=$1&id=$2&page=$3 [L]
+
+RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$ index.php?com=$1&idl=$2 [L]
+RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)&page=([0-9]+)$ index.php?com=$1&idl=$2&page=$3 [L]
+RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)&p=([0-9]+)$ index.php?com=$1&idl=$2&page=$3 [L]
+
+
+RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$ index.php?com=$1&idc=$3 [L]
+RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)&page=([0-9]+)$ index.php?com=$1&idc=$3&page=$4 [L]
+RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)&p=([0-9]+)$ index.php?com=$1&idc=$3&page=$4 [L]
+
+RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$ index.php?com=$1&idi=$4 [L]
+RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)&page=([0-9]+)$ index.php?com=$1&idi=$4&page=$5 [L]
+RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)&p=([0-9]+)$ index.php?com=$1&idi=$4&page=$5 [L]
+
+ 
+RewriteRule ^lang=([a-zA-Z0-9_-]+)$ index.php?lang=$1 [L]
+
+RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)-([0-9]+).html$ index.php?com=$1&act=$2&id=$4 [L]
+RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+).html$ index.php?com=$1&act=$2 [L]
+
+RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)-([0-9]+).htm$ index.php?com=$1&act=$2&id=$4 [L]
+RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+).htm$ index.php?com=$1&act=$2 [L]
+
+
+
+
+  

@@ -1,0 +1,89 @@
+#hover_per_login {
+	display:none;
+}
+#hover_per_login:before {
+  border-color: rgba(194, 225, 245, 0);
+  border-bottom-color: #ccc;
+  border-width: 10px;
+  margin-right: 0px;
+}
+#hover_per_login:after, #hover_per_login:before {
+  bottom: 100%;
+  left: 46%;
+  border: solid transparent;
+  content: "";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+.dang_nhap:hover #hover_per_login {
+  display: block;
+}
+#hover_per_login {
+  position: absolute;
+  background: #fff;
+  z-index: 9999;
+  color: #272727;
+  padding: 18px;
+  box-shadow: 0px 5px 9px -5px #888888;
+  width: 270px;
+  right: -5px;
+  line-height: 20px;
+  text-align: left;
+  top: 38px;
+  padding-bottom: 25px;
+}
+.margin-bottom-5 {
+  margin-bottom: 5px;
+}
+#header_right #login_2 p {
+  font-size: 14px;
+}
+.form-control {
+  display: block;
+  width: 100%;
+  height: 28px;
+  padding: 0px 12px;
+  font-size: 13px;
+  line-height: 28px;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  box-sizing: border-box;
+}
+.ghinho_top {
+  color: #4b4b4b;
+}
+.sumit_login {
+  background: #e42424;
+  text-align: center;
+  border-radius: 3px;
+  line-height: 30px;
+  display: inline-block;
+  transition: 0.5s all ease;
+  border: none;
+  color: #fff;
+  padding: 0px 15px;
+}
+.quenmat {
+  display: inline-block;
+  text-align: right;
+  margin: 0px 10px;
+}
+#header_right a {
+  font-family: 'Roboto-Regular';
+  color: #fff;
+  font-size: 13px;
+}
+.quenmat a {
+  color: #A09D9D !important;
+  font-size: 13px !important;
+  transition: 0.2s all ease;
+}

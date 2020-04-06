@@ -1,0 +1,21 @@
+.hide { position: absolute; top: -9999px; left: -9999px; }
+#example-one{width:301px; height:500;}
+#example-one .nav { overflow: hidden; margin: 0 0 0 0; }
+#example-one .nav li {float: left; margin: 0 0px 0 0; }
+#example-one .nav li.last { margin-right: 0; }
+#example-one .nav li a {}
+#example-one .nav li a:hover {}
+
+#example-one ul { list-style: none; }
+#example-one ul li a { display: block; color: #666; }
+#example-one ul li a:hover { color:#a6a09e; }
+#example-one ul li:last-child a { border: none; }
+.chitiet_tab{
+color:#FF0000;
+font-weight:bold;
+text-decoration:n;
+}
+
+
+
+

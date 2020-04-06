@@ -1,0 +1,96 @@
+*{margin: 0;padding: 0;}
+body{font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#000;background: #FFF;}
+#wrapper1{width:800px;margin:auto;border-left:5px solid #4a4d50;border-right:5px solid #4a4d50;border-top:2px solid #4a4d50;border-bottom:2px solid #4a4d50;padding-top:30px;padding-bottom: 50px;padding-left:50px;padding-right:50px;font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#000;line-height:1.5em;}
+.top_dh_l{
+float:left;
+width:400px;
+}
+.top_dh_r{
+float:right;
+width:400px;
+}
+.clear{
+clear:both;
+}
+.top_dh_l b{
+text-transform:uppercase;
+font-size:18px;
+display:block;
+font-weight:bold;
+}
+.top_dh_l span{
+display:block;
+}
+.top_dh_r h2{
+color:#f02212;
+text-transform:uppercase;
+font-size:16px;
+border-bottom:2px solid #f02212;
+padding-bottom:5px;
+text-align:right;
+display:block;
+margin-bottom:15px;
+margin-top:30px;
+}
+.thongtin{
+padding-left:70px;
+}
+.sang_link{
+display:block;
+border-bottom:1px solid #ccc;
+padding-bottom:5px;
+margin-top:25px;
+text-transform:uppercase;
+font-size:16px;
+}
+.camon{
+float:right;
+width:400px;
+}
+.bottom_dh{
+display:block;
+}
+.box_ct {/* float:left; *//* width:500px; */margin-bottom:15px;}
+.bottom_dh p{
+display:block;
+padding-bottom:5px;
+border-bottom:1px dashed #ccc;
+margin-top:5px;
+}
+.bottom_dh p .l_gia{
+float:left;
+width:400px;
+}
+.box_luuy{/* float:right; *//* width:250px; */padding-top:30px;}
+.top_box_ct{
+display:block;
+width:100%;
+float:left;
+}
+.stt{
+float:left;
+width:20px;
+}
+.ten_sp{
+float:left;
+width:200px;
+}
+.thongtin1{
+float:left;
+width:120px;
+text-align:center;
+}
+.soluong{
+float:left;
+width:40px;
+text-align:center;
+}
+.giathanh{
+float:left;
+width:100px;
+text-align:center;
+}
+.ngaydat{
+    float: left;
+    font-weight: bold;
+}

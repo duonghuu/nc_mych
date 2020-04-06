@@ -38,6 +38,18 @@ if(!function_exists("myformat")){
        }
     }
 }
+function getCurrentPageURL() {
+    $pageURL = 'http';
+    if ($_SERVER["HTTPS"] == "on") {$pageURL .= "s";}
+    $pageURL .= "://";
+    if ($_SERVER["SERVER_PORT"] != "80") {
+        $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"];
+    } else {
+        $pageURL .= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
+    }
+  $pageURL = explode("&page=", $pageURL);
+    return $pageURL[0];
+}
 function getCurrentPageURL_CANO() {
     $pageURL = 'http';
     if ($_SERVER["HTTPS"] == "on") {$pageURL .= "s";}
@@ -545,7 +557,7 @@ function getServiceList($postData,&$responseDataNew) {
 	}
 
 
-
+/*
 function ampify($html='') {
     # Replace img, audio, and video elements with amp custom elements
     $html = str_ireplace(array('<img','<video','/video>','<audio','/audio>'),array('<amp-img','<amp-video','/amp-video>','<amp-audio','/amp-audio>'),$html);
@@ -577,6 +589,7 @@ function getCurrentPageURL_AMP() {
 	$pageURL = explode("/page=", $pageURL);
     return $pageURL[0];
 }
+*/
 
 function getInfoDaily($id){
 	global $d;
@@ -1277,18 +1290,7 @@ function images_name($tenhinh)
 		$result = changeTitle($ten_anh[0])."-".$rand;
 		return $result; 
 	}
-function getCurrentPageURL() {
-    $pageURL = 'http';
-    if ($_SERVER["HTTPS"] == "on") {$pageURL .= "s";}
-    $pageURL .= "://";
-    if ($_SERVER["SERVER_PORT"] != "80") {
-        $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"];
-    } else {
-        $pageURL .= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
-    }
-	$pageURL = explode("&page=", $pageURL);
-    return $pageURL[0];
-}
+
 function create_thumb($file, $width, $height, $folder,$file_name,$zoom_crop='1'){
 
 // ACQUIRE THE ARGUMENTS - MAY NEED SOME SANITY TESTS?
@@ -1504,4 +1506,173 @@ function format_size ($rawSize)
       if ($rawSize / 1024 > 1) return round($rawSize / 1024, 1) . ' KB';
       else
         return round($rawSize, 1) . ' Bytes';
+  }
+  function getCurrentPageURL_AMP() {  
+    $pageURL = 'http';
+    if ($_SERVER["HTTPS"] == "on") {$pageURL .= "s";}
+    $pageURL .= "://";
+    if ($_SERVER["SERVER_PORT"] != "80") {
+      $pageURL .= $_SERVER["SERVER_NAME"]."/amp".$_SERVER["REQUEST_URI"];
+    } else {
+      $pageURL .= $_SERVER["SERVER_NAME"]."/amp".$_SERVER["REQUEST_URI"];
+    }
+    $pageURL = explode("&page=", $pageURL);
+    return $pageURL[0];
+  }
+  function seo_entities($str) {
+    $res_2 = htmlentities($str, ENT_QUOTES, "UTF-8");
+    $res_2 = str_replace("'","&#039;",$str);
+    $res_2 = str_replace('"','&quot;',$str);
+    return $res_2;
+  }
+  class allow_some_html_tags {
+      var $doc = null;
+      var $xpath = null;
+      var $allowed_tags = "";
+      var $allowed_properties = array();
+
+      function loadHTML( $html ) {
+          $this->doc = new DOMDocument();
+        #  $html = strip_tags( $html, $this->allowed_tags );
+          @$this->doc->loadHTML(mb_convert_encoding($html, 'HTML-ENTITIES', 'UTF-8'));    
+          $this->xpath = new DOMXPath( $this->doc );
+      }
+      function setAllowed( $properties = array() ) {
+          foreach( $properties as $allow ) $this->allowed_properties[$allow] = 1;
+      }
+      function getAttributes( $tag ) {
+          $r = array();
+          for( $i = 0; $i < $tag->attributes->length; $i++ )
+              $r[] = $tag->attributes->item($i)->name;
+          return( $r );
+      }
+      function getCleanHTML() {
+          $tags = $this->xpath->query("//*");
+          foreach( $tags as $tag ) {
+              $a = $this->getAttributes( $tag );
+              
+              foreach( $a as $attribute ) {
+                  
+                  if( !isset( $this->allowed_properties[$attribute] ) ){
+                      $tag->removeAttribute( $attribute );
+                      
+                  }
+              }
+          }
+          
+          return( $this->doc->saveHTML());
+      }
+  }
+  function genAMPVideo($id){
+      return '<amp-youtube data-videoid="'.$id.'" layout="responsive" width="480" height="270"></amp-youtube>';
+  }
+  function LinkConvert($str) {
+      $pattern = '|<a.+?href\="(.+?)".*?>(.+?)</a>|i';
+      return preg_replace_callback($pattern, function ($matches) {
+          // Remove quotes
+          $matches[2] = strip_tags($matches[0]);
+          $link = $matches[1];
+          $text = $matches[2];
+          return "<a href='$link'>$text</a>";
+      }, $str);
+  }
+  function VidConvert($iframeCode,$check=false) {
+      $pattern = '/<iframe\s+.*?\s+src=(".*?").*?<\/iframe>/';
+      if($check){
+          return preg_match_all($pattern, $iframeCode, $matches);
+      }
+      // Extract video url from embed code
+      return preg_replace_callback($pattern, function ($matches) {
+          // Remove quotes
+          $youtubeUrl = $matches[1];
+          $youtubeUrl = trim($youtubeUrl, '"');
+          $youtubeUrl = trim($youtubeUrl, "'");
+          
+          // Extract id
+          preg_match("/^(?:http(?:s)?:\/\/)?(?:www\.)?(?:m\.)?(?:youtu\.be\/|youtube\.com\/(?:(?:watch)?\?(?:.*&)?v(?:i)?=|(?:embed|v|vi|user)\/))([^\?&\"'>]+)/", $youtubeUrl, $videoId);
+          return $youtubeVideoId = isset($videoId[1]) ? genAMPVideo($videoId[1]) : "";
+      }, $iframeCode);
+
+  }
+  function replace_img_src($img_tag) {
+     $doc = new DOMDocument();
+     $doc->loadHTML(mb_convert_encoding($img_tag, 'HTML-ENTITIES', 'UTF-8'));
+     $tags = $doc->getElementsByTagName('img');
+
+     foreach ($tags as $tag) {
+         $old_src = $tag->getAttribute('src');
+         $w_attr = $tag->getAttribute('width');
+         $h_attr = $tag->getAttribute('height');
+         if( $w_attr=='' && $h_attr==''){
+         list($width, $height, $type, $attr) = getimagesize($old_src);
+         $tag->setAttribute('height', $height);
+         $tag->setAttribute('width', $width);
+       }elseif($w_attr!='' && $h_attr==''){
+        list($width, $height, $type, $attr) = getimagesize($old_src);
+        $height=($w_attr*$height)/$width;
+        $tag->setAttribute('height', $height);
+        $tag->setAttribute('width', $w_attr);
+        $width=$w_attr;
+       }elseif($w_attr=='' && $h_attr!=''){
+        list($width, $height, $type, $attr) = getimagesize($old_src);
+        $width=($h_attr*$width)/$height;
+        $tag->setAttribute('height', $h_attr);
+        $tag->setAttribute('width', $width);
+       }else{
+         $width=$w_attr;
+         $height=$h_attr;
+       }
+         if($width>=250) $tag->setAttribute('layout', 'responsive');
+     }
+     return $doc->saveHTML();
+  }
+  function ampify($html='') {
+      
+      $html = LinkConvert($html);
+      $html = VidConvert($html);
+      $html = replace_img_src($html);
+      
+      # Replace img, audio, and video elements with amp custom elements
+      $html = str_ireplace(array('<img','<video','/video>','<audio','/audio>','<iframe','/iframe>'),array('<amp-img ','<amp-video','/amp-video>','<amp-audio','/amp-audio>','<amp-iframe','/amp-iframe>'),$html);
+      # Add closing tags to amp-img custom element
+          
+      $comments = new allow_some_html_tags();
+      $comments->setAllowed(array("class","id","src","href","width","height","tabindex","data-videoid","layout"));
+      $comments->loadHTML( $html );
+      $html = $comments->getCleanHTML();
+      
+      $html = preg_replace('/<amp-img(.*?)\/?>/','<amp-img$1 ></amp-img>',$html);
+      $html = preg_replace('/<amp-youtube(.*?)\/?>/','<amp-youtube$1 ></amp-youtube>',$html);
+      
+      $html = preg_replace('/border=\\"[^\\"]*\\"/', '', $html); 
+      $html = preg_replace('/new=\\"[^\\"]*\\"/', '', $html); 
+      $html = preg_replace('/style=\\"[^\\"]*\\"/', '', $html); 
+      #preg_replace('/style=\\"[^\\"]*\\"/', '', $desc); 
+
+      
+      $html = preg_replace('/<span(.*?)\/?>/','<span>',$html);
+      $html = preg_replace('/<div(.*?)\/?>/','<div>',$html);
+      $html = preg_replace('/<td(.*?)\/?>/','<td>',$html);
+      $html = preg_replace('/<h3(.*?)\/?>/','<h3>',$html);
+      $html = preg_replace('/<p(.*?)\/?>/','<p>',$html);
+      $html = preg_replace('/<h2(.*?)\/?>/','<h2>',$html);
+      
+      $html = preg_replace('/<em(.*?)\/?>/','<em>',$html);
+      $html = preg_replace('/<br(.*?)\/?>/','<br>',$html);
+      
+      
+      $html = preg_replace('/<table(.*?)\/?>/','<table>',$html);
+      
+      $html = preg_replace('/<a style(.*?)\/?>/','</a>',$html);
+      $html = preg_replace('/<div style(.*?)\/?>/','</div>',$html);
+      $html = preg_replace('/<p style(.*?)\/?>/','</p>',$html);
+      $html = preg_replace('/<span style(.*?)\/?>/','</span>',$html);
+      
+      $html = preg_replace('/<strong(.*?)\/?>/','<strong>',$html);
+      # Whitelist of HTML tags allowed by AMP
+      $html = strip_tags($html,'<h1><h2><h3><h4><h5><h6><a><p><ul><ol><li><blockquote><q><cite><ins><del><strong><em><code><pre><svg><table><thead><tbody><tfoot><th><tr><td><dl><dt><dd><article><section><header><footer><aside><figure><time><abbr><div><span><hr><small><br><amp-img><amp-audio><amp-video><amp-ad><amp-anim><amp-carousel><amp-fit-rext><amp-image-lightbox><amp-instagram><amp-lightbox><amp-twitter><amp-youtube>');
+      # replace style to w,h
+      $html = preg_replace('/(<[^>]+) style=".*?"/i', '$1', $html);
+
+      return $html;
   }

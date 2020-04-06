@@ -19,7 +19,7 @@ $detect = new Mobile_Detect;
 $deviceType = ($detect->isMobile() ? ($detect->isTablet() ? 'tablet' : 'phone') : 'computer');
 include_once _lib."config.php";
 $config['arrayDomainSSL']=array("mych.vn"); 
-include_once _lib."checkSSL.php";
+// include_once _lib."checkSSL.php";
 include_once _lib."constant.php";
 include_once _lib."functions.php";
 include_once _lib."class.database.php";
@@ -48,8 +48,10 @@ if($_REQUEST['command']=='add' && $_REQUEST['productid']>0){
 		<link id="favicon" rel="shortcut icon" href="images/logo.png" type="image/x-icon" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=1" />
 		<title><?php if($title_bar!='') echo $title_bar; else echo $row_setting['title']; ?></title>
-		<meta name="description" content="<?php if($description_bar!='') echo $description_bar; else echo $row_setting['description']; ?>">
-		<meta name="keywords" content="<?php if($keyword_bar!='') echo $keyword_bar; else echo $row_setting['keywords']; ?>">
+		<meta name="description" content="<?php if($description_bar!='') echo $description_bar; 
+		else echo $row_setting['description']; ?>">
+		<meta name="keywords" content="<?php if($keyword_bar!='') echo $keyword_bar; 
+		else echo $row_setting['keywords']; ?>">
 		<meta name="robots" content="noodp,index,follow" />
 		<meta name="google" content="notranslate" />
 		<meta name='revisit-after' content='1 days' />
@@ -75,7 +77,9 @@ if($_REQUEST['command']=='add' && $_REQUEST['productid']>0){
 		<link rel="stylesheet" href="js/bootstrap/css/bootstrap.css">
 		<link rel='stylesheet' id='font-awesome-css' href='fonts/font-awesome/css/font-awesome.min.css?ver=4.0.3' type='text/css' media='all' /> 
 		<link rel='stylesheet' href='css/fonts.css' type='text/css' /> 
-		<style><?php echo file_get_contents($Protocol.$config_url.'/css_optimize.php');?></style>
+		<?php /* 
+		<style><?php echo file_get_contents($Protocol.$config_url.'/css_optimize.php');?></style> 
+		*/?>
 		<?php  include _template."layout/css.php";?> 
 			<?php /* <!-- Google Tag Manager -->
 						<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

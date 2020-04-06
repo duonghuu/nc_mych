@@ -15,11 +15,11 @@
 		}
 	}
 	//set_error_handler('nettuts_error_handler');
-	//error_reporting(0);
+	error_reporting(0);
 
 	date_default_timezone_set('Asia/Ho_Chi_Minh');
 
-	$config_url=$_SERVER["SERVER_NAME"].'';
+	$config_url=$_SERVER["SERVER_NAME"].'/2004/nc_mych';
 	$config['debug']=1;    #Bật chế độ debug dành cho developer
 	$config['lang']="vi";
 	$config_email="info@mych.vn";
@@ -27,9 +27,9 @@
 	$config_ip="120.72.119.3";
 
 	$config['database']['servername'] = 'localhost';
-	$config['database']['username'] = 'giadungmyc_db2';
-	$config['database']['password'] = 'BhJi6ZctS';
-	$config['database']['database'] = 'giadungmyc_db2';
+	$config['database']['username'] = 'root';
+	$config['database']['password'] = '';
+	$config['database']['database'] = 'nc_mychamp';
 	$config['database']['refix'] = 'table_';	
 
 	// $config['database']['servername'] = 'localhost';
@@ -45,5 +45,7 @@
 	$config['address-active'] = "A21 Tô Ký - KP1 - P.Đông Hưng Thuận, Quận 12, Hồ Chí Minh";
 	$config['key_ghtk'] = '8711a3421aFCF5362e11607dEa4E6Cd4294Df518';
 
-	$config_recaptcha="6Le8YKkUAAAAACm5RNHkoOmKmc5VvzlO6aCUfhEv";
-	$config_secretkey="6Le8YKkUAAAAAHxleKOB6SC3U6XbJrytzeAfvyqv";
+	// $config_recaptcha="6Le8YKkUAAAAACm5RNHkoOmKmc5VvzlO6aCUfhEv";
+	// $config_secretkey="6Le8YKkUAAAAAHxleKOB6SC3U6XbJrytzeAfvyqv";
+	$config_recaptcha = '6LfrTJkUAAAAAJvr-qt-eCnpESTHTgq275qGaMyB';
+	$config_secretkey = '6LfrTJkUAAAAAKT9qwHJMryQsVSfSw5XI_upBjZS';

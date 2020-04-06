@@ -48,7 +48,7 @@ RewriteRule ^admin$ admin/ [L]
 RewriteRule ^admin/$ admin/ [L]
 
 
-RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([0-9]+)x([0-9]+)x([0-9]+)/(.*)\.(jpg|jpeg|png|gif)$  timthumb.php?src=upload/$2/$6.$7&h=$4&w=$3&zc=$5&q=100  [L]
+RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([0-9]+)x([0-9]+)x([0-9]+)/(.*)\.(jpg|jpeg|png|gif)$  timthumb_watermark.php?src=https://%{HTTP_HOST}/2004/nc_mych/upload/$2/$6.$7&h=$4&w=$3&zc=$5&q=90&&wm=0&wl=5&wmr=1  [L]
 
 RewriteRule ^san-pham-cung-nghanh.html&([a-zA-Z0-9_-]+)$ index.php?com=san-pham-cung-nghanh&id=$1  [L]
 RewriteRule ^san-pham-tuong-tu.html&([a-zA-Z0-9_-]+)$ index.php?com=san-pham-tuong-tu&id=$1  [L]

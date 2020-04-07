@@ -19,6 +19,14 @@
 	$thoigiantu=strtotime($row_setting['thoigiantu']);
     $thoigianden=strtotime($row_setting['thoigianden']);
     $thoigan=$thoigianden-time();
+
+  $datacom = array(
+  	array("tbl"=>"product","field"=>"id","source"=>"product","type"=>"product","com"=>"san-pham"),
+  	array("tbl"=>"product_list","field"=>"id_list","source"=>"product","type"=>"product","com"=>"san-pham"),
+  	array("tbl"=>"product_cat","field"=>"id_cat","source"=>"product","type"=>"product","com"=>"san-pham"),
+  	array("tbl"=>"product_item","field"=>"id_item","source"=>"product","type"=>"product","com"=>"san-pham"),
+  	
+  );
 	
 	switch($com){
 		/**************LOGIN***************/

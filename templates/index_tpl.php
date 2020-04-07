@@ -1,5 +1,88 @@
 <h1 class="visit_hidden"><?=$row_setting['ten_'.$lang]?></h1>
-
+<div class="danhmuc_pro clearfix">
+    <div class="margin-auto">
+        <div class="box-white">
+            <h3 class="tit-web">Sản phẩm yêu thích</h3>
+            <div class="box-content box-pd10">
+                <div class="chay_tkhd scroll">
+                    <?php foreach($tikiemhangdau as $k){?>
+                        <div class="item_tkhd">
+                            <div class="product_images">
+                                <a  target="_blank" href="san-pham/<?=$k['tenkhongdau']?>.html">
+                                    <div class="hidden_img">
+                                        <img data-src="<?=_upload_product_l?>475x500x2/<?=$k['photo']?>" alt="<?=$k['ten_'.$lang]?>"  onerror="this.src='1x1.png';" class="lazy" src="1x1.png" >
+                                        <?php if($k['giacu'] > 0){?>
+                                            <span class="giamgia"><?=giamgia($k['giacu'],$k['giaban'])?></span>
+                                        <?php } ?>
+                                    </div>
+                                </a>
+                            </div>
+                            <?php $giasp = explode('|',$k['gia']);?>
+                            <?php
+                              $pricesize=str_replace(',', '', $giasp[0]);
+                              if($pricesize <=0){$pricesize = $k['giaban'];}
+                            ?>
+                            <div class="info_deal">
+                                <h3><a  target="_blank" href="san-pham/<?=$k['tenkhongdau']?>.html"><?=$k['ten_'.$lang]?></a></h3>
+                                <div class="giasp <?php if($k['giacu']<=0) echo 'none-price'?>">
+                                    <span><?php if($pricesize==0) echo _lienhe; else echo number_format ($pricesize,0,",",",")." VNĐ";?></span>
+                                    <?php if($k['giacu']>0){?>
+                                        <span><?=number_format ($k['giacu'],0,",",",")." đ";?></span>
+                                    <?php } ?>
+                                    
+                                </div>
+                               <div class="luotxem"><i class="fa fa-eye"></i> <?=$k['luotxemhd']?> lượt xem</div>
+                            </div>
+                        </div>
+                    <?php } ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<?php if(!empty($spdaxem)){ ?>
+<div class="danhmuc_pro clearfix">
+    <div class="margin-auto">
+        <div class="box-white">
+            <h3 class="tit-web">Sản phẩm đã xem</h3>
+            <div class="box-content box-pd10">
+                <div class="chay_tkhd scroll">
+                    <?php foreach($spdaxem as $k){?>
+                        <div class="item_tkhd">
+                            <div class="product_images">
+                                <a  target="_blank" href="san-pham/<?=$k['tenkhongdau']?>.html">
+                                    <div class="hidden_img">
+                                        <img data-src="<?=_upload_product_l?>475x500x2/<?=$k['photo']?>" alt="<?=$k['ten_'.$lang]?>"  onerror="this.src='1x1.png';" class="lazy" src="1x1.png" >
+                                        <?php if($k['giacu'] > 0){?>
+                                            <span class="giamgia"><?=giamgia($k['giacu'],$k['giaban'])?></span>
+                                        <?php } ?>
+                                    </div>
+                                </a>
+                            </div>
+                            <?php $giasp = explode('|',$k['gia']);?>
+                            <?php
+                              $pricesize=str_replace(',', '', $giasp[0]);
+                              if($pricesize <=0){$pricesize = $k['giaban'];}
+                            ?>
+                            <div class="info_deal">
+                                <h3><a  target="_blank" href="san-pham/<?=$k['tenkhongdau']?>.html"><?=$k['ten_'.$lang]?></a></h3>
+                                <div class="giasp <?php if($k['giacu']<=0) echo 'none-price'?>">
+                                    <span><?php if($pricesize==0) echo _lienhe; else echo number_format ($pricesize,0,",",",")." VNĐ";?></span>
+                                    <?php if($k['giacu']>0){?>
+                                        <span><?=number_format ($k['giacu'],0,",",",")." đ";?></span>
+                                    <?php } ?>
+                                    
+                                </div>
+                               <div class="luotxem"><i class="fa fa-eye"></i> <?=$k['luotxemhd']?> lượt xem</div>
+                            </div>
+                        </div>
+                    <?php } ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<?php } ?>
 <?php if($thoigiantu <= time() && $thoigianden >= time() ) { ?>
 <?php if($dealgiasoc){?>
 <div class="danhmuc_pro clearfix" id="deal_giasoc">

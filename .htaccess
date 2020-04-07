@@ -43,7 +43,7 @@ DirectoryIndex indedx.html index.php
 
 
 ErrorDocument 404 /404.php
-
+RewriteRule ^sitemap.xml$ sitemap.php [L]
 RewriteRule ^admin$ admin/ [L]
 RewriteRule ^admin/$ admin/ [L]
 

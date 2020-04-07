@@ -11,6 +11,7 @@ if($com=='deal-gia-soc'){
 @$id=  addslashes($_GET['id']);
 		#các sản phẩm khác======================
 if($id!=''){
+
 	$d->reset();
 	$sql= "select noidung_$lang from #_company where type='van-chuyen'";
 	$d->query($sql);
@@ -30,7 +31,9 @@ if($id!=''){
 	$id_listhome=$row_detail["id_list"];
 	$id_cathome=$row_detail["id_cat"];
 	$id_itemhome=$row_detail["id_item"];
-	daxem($row_detail["id"]);
+	if(isset($_SESSION["login"]) && $_SESSION["login"]["id_tv"]>0){
+		daxem($row_detail["id"]);
+	}
 	$d->reset();
 	$sql_detail = "select * from #_product_list where hienthi=1 and id='".$row_detail['id_list']."' and type='".$type_bar."'  ";
 	$d->query($sql_detail);
@@ -52,7 +55,7 @@ if($id!=''){
 	}	 
 	$bredrum.='<li><span>'.$row_detail['ten_vi'].'</span></li>
 	</ul>';
-			//màu sắc
+			//màu sắc 
 	$d->reset();
 	$sql_detail = "select * from #_mausp where id_product='".$row_detail['id']."'";
 	$d->query($sql_detail);

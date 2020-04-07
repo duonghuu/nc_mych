@@ -1,74 +1,90 @@
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <?php
-	@define ( '_template' , './templates/');
-	@define ( '_source' , './sources/');
-	@define ( '_lib' , './libraries/');
+		session_start();
+		$session=session_id();
+		@define ( '_lib' , './libraries/');
 
-	if(!isset($_SESSION['lang']))
-	{
-	$_SESSION['lang']='vi';
-	}
-	$lang=$_SESSION['lang'];
-	
-	include_once _lib."config.php";
-	include_once _lib."constant.php";
-	include_once _lib."functions.php";
-	include_once _lib."class.database.php";
-	include_once _lib."file_requick.php";
-	
+		include_once _lib."config.php";
+		include_once _lib."functions.php";
+		include_once _lib."class.database.php";
 
-$header_xml = "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n<urlset xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\" xsi:schemaLocation=\"http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd\">
+		include_once _lib."file_requick.php";
+		$time_sitemap = time();
+		function get_http(){
+			$pageURL = 'http';
+			if ($_SERVER["HTTPS"] == "on") {
+				$pageURL .= "s";
+			}
+			$pageURL .= "://";
+			return $pageURL;
+		}
+		function urlElement($url,$pri,$time) {
+			global $config_url; 
+			$url = get_http().$config_url.$url;
+			$str_sitemap='<url>'; 
+			$str_sitemap.='<loc>'.$url.'</loc>'; 
+			$str_sitemap.='<lastmod>'.date("c",$time).'</lastmod>';
+			$str_sitemap.='<changefreq>weekly</changefreq>'; 
+			$str_sitemap.='<priority>'.$pri.'</priority>';
+			$str_sitemap.='</url>';
+			echo $str_sitemap;
+		} 
+		function CreateXML2($tbl='',$type='',$priority=1,$t_com=''){
+			global $d;
+			
+			if($tbl=='') return false;
+			$d->reset();
+			$sql = "SELECT id,type,tenkhongdau,ngaytao FROM table_$tbl where type='".$type."' and hienthi=1 order by ngaytao desc";
+			$d->query($sql);
+			$result_data = $d->result_array();
+			foreach ($result_data as $key => $v) { 
+				if($tbl=='product'){
+					urlElement('/'.$t_com.'/'.$v["tenkhongdau"].'.html',$priority,$v['ngaytao']);
+				}else if($tbl=='product_list'){
+					urlElement('/'.$t_com.'/'.$v["tenkhongdau"],$priority,$v['ngaytao']);
+				}else if($tbl=='product_cat'){
 
-<author>".$row_setting['ten_'.$lang]."</author>";
-$footer_xml = "<author>".$row_setting['ten_'.$lang]."</author></urlset>";
-$file_topic = fopen("sitemap.xml", "w+");
-fwrite($file_topic, $header_xml);
+					$d->reset();
+					$sql = "SELECT id_list FROM table_$tbl where id='".$v["id"]."'";
+					$d->query($sql);
+					$detail_data = $d->fetch_array();
 
-fwrite($file_topic, "<url><loc>http://".$config_url."/trang-chuhhhhu.html</loc><lastmod>1/12/2015 - 4:43 PM</lastmod><changefreq>daily</changefreq><priority>0.1</priority></url>");
-fwrite($file_topic, "<url><loc>http://".$config_url."/lien-he.html</loc><lastmod>1/12/2015 - 4:43 PM</lastmod><changefreq>daily</changefreq><priority>0.1</priority></url>");
+					$d->reset();
+					$sql = "SELECT tenkhongdau FROM table_product_list where id='".$detail_data["id_list"]."'";
+					$d->query($sql);
+					$list_data = $d->fetch_array();
 
+					urlElement('/'.$t_com.'/'.$list_data["tenkhongdau"].'/'.$v["tenkhongdau"],$priority,$v['ngaytao']);
+				}else if($tbl=='product_item'){
+					$d->reset();
+					$sql = "SELECT id_list,id_cat FROM table_$tbl where id='".$v["id"]."'";
+					$d->query($sql);
+					$detail_data = $d->fetch_array();
 
-$sql = "SELECT ten_vi,id,ngaytao,tenkhongdau FROM table_product_list";
-$d->query($sql);
-$sanpham = $d->result_array();
-for($i=0;$i<count($sanpham);$i++){
-        
-fwrite($file_topic, "<url><loc>http://".$config_url."/".$sanpham[$i]['tenkhongdau']."</loc><lastmod>".date('d/m/Y - g:i A',$sanpham[$i]['ngaytao'])."</lastmod><changefreq>daily</changefreq><priority>1</priority></url>");
-} 
+					$d->reset();
+					$sql = "SELECT tenkhongdau FROM table_product_list where id='".$detail_data["id_list"]."'";
+					$d->query($sql);
+					$list_data = $d->fetch_array();
 
-$sql = "SELECT ten_vi,id,ngaytao,tenkhongdau FROM table_product";
-$d->query($sql);
-$sanpham = $d->result_array();
-for($i=0;$i<count($sanpham);$i++){
-        
-fwrite($file_topic, "<url><loc>http://".$config_url."/san-pham/".$sanpham[$i]['id']."/".$sanpham[$i]['tenkhongdau'].".html</loc><lastmod>".date('d/m/Y - g:i A',$sanpham[$i]['ngaytao'])."</lastmod><changefreq>daily</changefreq><priority>1</priority></url>");
-} 
+					$d->reset();
+					$sql = "SELECT tenkhongdau FROM table_product_cat where id='".$detail_data["id_cat"]."'";
+					$d->query($sql);
+					$cat_data = $d->fetch_array();
 
-
-$d->reset();
-$sql = "select ten_$lang,id,tenkhongdau,ngaytao from #_baiviet where type='chamsoc' order by stt,id desc ";
-$d->query($sql);
-$sanpham = $d->result_array();
-
-for($i=0;$i<count($sanpham);$i++){
-        
-fwrite($file_topic, "<url><loc>http://".$config_url."/cham-soc-khach-hang/".$sanpham[$i]['id']."/".$sanpham[$i]['tenkhongdau'].".html</loc><lastmod>".date('d/m/Y - g:i A',$sanpham[$i]['ngaytao'])."</lastmod><changefreq>daily</changefreq><priority>1</priority></url>");
-} 
-
-$d->reset();
-$sql = "select ten_$lang,id,tenkhongdau,ngaytao from #_baiviet where type='hoangquan' order by stt,id desc ";
-$d->query($sql);
-$sanpham = $d->result_array();
-
-for($i=0;$i<count($sanpham);$i++){
-        
-fwrite($file_topic, "<url><loc>http://".$config_url."/".$sanpham[$i]['id']."/".$sanpham[$i]['tenkhongdau'].".html</loc><lastmod>".date('d/m/Y - g:i A',$sanpham[$i]['ngaytao'])."</lastmod><changefreq>daily</changefreq><priority>1</priority></url>");
-} 
- 
-fwrite($file_topic, $footer_xml);
-fclose($file_topic);
-
-transfer("Đã tạo xong sitemap ! ", "sitemap.xml");
-
-
-?>
+					urlElement('/'.$t_com.'/'.$list_data["tenkhongdau"].'/'.$cat_data["tenkhongdau"].'/'.$v["tenkhongdau"],$priority,$v['ngaytao']);
+				}
+			}	
+		}
+		header("Content-Type: application/xml; charset=utf-8"); 
+		echo '<?xml version="1.0" encoding="UTF-8"?>'; 
+		echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">'; 
+		urlElement('','1.0',$time_sitemap); 
+		foreach ($datacom as $k => $v) {
+			$priority = $v['field']=='id' ? "1.0" : "0.8";
+			if($v['field']=='id'){
+				urlElement('/'.$v['com'].'.html',$priority,$time_sitemap); 
+			}
+			if($v['tbl']!='about'){
+				CreateXML2($v['tbl'],$v['type'],$priority,$v['com']);
+			}
+		}
+		echo '</urlset>'; 

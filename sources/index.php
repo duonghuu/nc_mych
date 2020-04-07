@@ -15,6 +15,17 @@
     $d->query($sql_detail);
     $tikiemhangdau = $d->result_array();
 
+    $a_cl = array_column($_SESSION["daxem"],'productid');
+
+    if(!empty($a_cl)){
+
+        $d->reset();
+        $sql_detail = "select id,photo,thumb,ten_$lang,giaban,tenkhongdau,giacu,luotxem,luotxem+luotxem2 as luotxemhd ,gia
+         from #_product where id in (".implode($a_cl,",").") order by luotxemhd desc limit 0,30";
+        $d->query($sql_detail);
+        $spdaxem = $d->result_array();
+    }
+
     $d->reset();
     $sql= "select ten_$lang,id,tenkhongdau,thumb2,thumb from #_product_list where hienthi=1 and danhmuc!=0 order by stt,id desc";
     $d->query($sql);

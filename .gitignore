@@ -1,6 +1,8 @@
 /.well-known
 /nina@#cache/*
 !/nina@#cache/styles.css
+/@#cache/*
+!/@#cache/styles.css
 /admin/*/
 /admin/*.php
 /admin/*.html

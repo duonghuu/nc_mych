@@ -85,7 +85,13 @@ function deal_price($soluongdeal,$soluongban)
 	$phantram = round($ketqua*100);
 	return $phantram;	
 }
+function likelayout($pid)
+{
 
+  if($_SESSION['login']['id_tv'] > 0){
+    echo '<span data-id="'.$pid.'" class="likebtn"><i class="fa heart"></i></span>';
+  }
+}
 /*function getDefaultData() {
     return array(
         'ApiKey' => 'UFg2qRAkcDUypYSu',

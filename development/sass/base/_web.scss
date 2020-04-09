@@ -1,0 +1,16 @@
+.likebtn{
+    @include absolute($right: 10px, $bottom: 0);
+    @include setFont(23px, #000, 700);
+    cursor: pointer;
+    @at-root .active#{&}{
+        color: #f00;
+    }
+    i{
+        &:before{
+            content: "\f08a";
+            @at-root .active#{&}{
+                content: "\f004";
+            }
+        }
+    }
+}

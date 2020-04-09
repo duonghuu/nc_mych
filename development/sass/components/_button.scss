@@ -1,0 +1,18 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the button component.
+// -----------------------------------------------------------------------------
+%btn-chitiet{
+  @include transition(all .3s ease);
+  @include box(40px , 40px);
+  @include setFont(16px , #fff, 700);
+  @include boxstyle($display: flex, $justify-content: center, $align-items: center);
+  background-color: $theme-color;
+  border: 1px solid $theme-color;
+  
+  
+  position: relative;
+}
+
+.btn-idx{
+  @extend %btn-chitiet;
+}

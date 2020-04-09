@@ -1,0 +1,179 @@
+%hover_menu_color{
+    //background: url($images-url+"hover-menu.png") repeat-x;
+    color: $color-menu-hover;
+    //background-color: $bg-menu-item-hover;
+}
+@include keyframes(dropInDown) {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(-20px);
+        -ms-transform: translateY(-20px);
+        -moz-transform: translateY(-20px);
+        -o-transform: translateY(-20px);
+        transform: translateY(-20px)
+    }
+    100% {
+        -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -o-transform: translateY(0);
+        transform: translateY(0)
+    }
+}
+
+%sub-menu-list{
+    position: absolute;
+    display: none;
+    min-width: 200px;
+    background-color: #fff;
+    list-style-type: none;
+    margin: 0;
+    @include boxShadow(0 3px 5px 0 rgba(0,0,0,.2));
+    @include animation('dropInDown 0.3s both');
+}
+.nav-bg {
+    
+    @include relative($left: 0, $right: 0);
+
+    z-index: 451 !important;
+    background-color: $bg-menu;
+    margin-bottom: 10px;
+    @at-root .clsindex #{&}{
+        
+    }
+    
+}
+.main-nav {
+    margin-left: percentage(247/1300);
+    position: relative;
+    background-color: $theme-color;
+    ul{
+        @extend %reset-list;
+    }
+    &>ul {
+        @include boxstyle($display: flex, $align-items: center);
+        z-index: 5;
+        &>li {
+            @include boxstyle($display: flex, $align-items: center);
+            position: relative;
+            z-index: 5;
+            &:not(:last-child):after{
+            }
+            &+li{
+            }
+            ul{
+                @extend %sub-menu-list;
+            }
+            &>a {
+                @include boxstyle($display: flex, $align-items: center,$justify-content: center, $flex-wrap: wrap);
+                min-height: 51px;
+                position: relative;
+                text-align: center;
+                @include setFont(15px, #fff, 700, $font-menu);
+                padding: 0 em(20);
+            }
+            
+            &:hover {
+                &>a {
+                    @extend %hover_menu_color;
+                }
+                &>ul{
+                    display: block;
+                }
+            }
+            &.active{
+                &>a {
+                    @extend %hover_menu_color;
+                }
+            }
+        }
+    }
+}
+.main-nav {
+    ul.sub-menu {
+       left: 0;
+       top: 100%;
+       
+        li {
+            position: relative;
+            a {
+                @include setFont(14px, #212121, 400, $font-menu);
+                text-decoration: none;
+                line-height: 34px;
+                padding: 0 10px;
+                white-space: nowrap;
+                display: block;
+                &:after {
+                    content: "\f105";
+                    font:{
+                        weight: 700;
+                        family: $font-awesome;
+                    };
+                    @include absolute($top: 0, $right: 5px);
+                }
+            }
+            @include setTagAHover(#212121, $theme-color);
+            &:hover{
+                &>ul{
+                    display: block;
+                }
+            }
+            ul {
+                top: 0;
+                left: 100%;
+            }
+
+        }
+        
+    }
+}
+//menu dropdown
+.global-nav-dropdown{
+    right: 0;
+    text-align: left;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    max-height: calc(100vh - 112px);
+    max-width: 100vw;
+    opacity: 0;
+    visibility: hidden;
+    overflow: auto;
+    z-index: 9000;
+    transition: opacity .1s linear .4s,visibility 0ms linear .41s;
+    background-color: #fff;
+    box-shadow: inset 0 -1px 0 0 #e5e5e5;
+    .nav-dropdown-container{
+        max-width: 1024px;
+        margin: 0 auto;
+        padding-bottom: 40px;
+        display: table;
+        .nav-menu-column{
+            width: 200px;
+            display: table-cell;
+            padding-right: 16px;
+            padding-left: 16px;
+            .nav-menu-item{
+                display: block;
+                white-space: nowrap;
+                font-size: 12px;
+                line-height: 16px;
+                margin-bottom: 8px;
+                color: #111;
+
+                &:hover{
+                    color: #6d6d6d;
+                }
+                &.is-header{
+                    font-weight: 700;
+                    letter-spacing: .5px;
+                    font-size: 16px;
+                    line-height: 16px;
+                    margin-top: 20px;
+                    margin-bottom: 16px;
+                    display: block;
+                }
+            }
+        }
+    }
+}

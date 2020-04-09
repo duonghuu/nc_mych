@@ -1,0 +1,96 @@
+.w-video{
+    position: relative;
+    height: 0;
+}
+.video-background {
+    
+    @include box(100%, 0);
+
+}
+video.video-background{
+    @include absolute($top: 0, $left: 0);
+    z-index: 0;
+    background-size: cover;
+    background-position: center center;
+}
+.volume-toggle {
+    @include absolute($top: 10px, $right: 10px);
+    padding: 20px;
+    cursor: pointer;
+    z-index: 10;
+    color: #ffffff;
+    display: flex;
+    &:hover{
+        span{
+            opacity: 1;
+        }
+    }
+    span{
+        opacity: 0;
+    }
+
+    .close {
+        position: absolute;
+        display: none;
+    }
+}
+
+
+.bar {
+    vertical-align: bottom;
+    background: #ffffff;
+    bottom: 1px;
+    @include box(3px, 3px);
+    min-height: 3px;
+    display: inline-block;
+    @include animation('sound 0ms -800ms linear infinite alternate');
+}
+.large-soundwave .bar {
+    vertical-align: middle;
+}
+@include keyframes(sound) {
+  0% {
+      opacity: 1;
+      height: 20%;
+  }
+
+  100% {
+      opacity: 1;
+      height: 99%;
+  }
+}
+
+.bar:nth-child(1) { animation-duration: 374ms; }
+.bar:nth-child(2) { animation-duration: 333ms; }
+.bar:nth-child(3) { animation-duration: 307ms; }
+.bar:nth-child(4) { animation-duration: 358ms; }
+.bar:nth-child(5) { animation-duration: 300ms; }
+.bar:nth-child(6) { animation-duration: 327ms; }
+.bar:nth-child(7) { animation-duration: 341ms; }
+.bar:nth-child(8) { animation-duration: 319ms; }
+.bar:nth-child(9) { animation-duration: 387ms; }
+.bar:nth-child(10) { animation-duration: 342ms; }
+.bar:nth-child(11) { animation-duration: 374ms; }
+.bar:nth-child(12) { animation-duration: 333ms; }
+.bar:nth-child(13) { animation-duration: 307ms; }
+.bar:nth-child(14) { animation-duration: 358ms; }
+.bar:nth-child(15) { animation-duration: 300ms; }
+.bar:nth-child(16) { animation-duration: 327ms; }
+.bar:last-child { margin-right: 0; }
+/* Video Audio Playing */
+.audio-on .controls {
+    opacity: 0;
+}
+
+.audio-on .volume-toggle span, .audio-on .volume-toggle .soundwave {
+    display: none;
+}
+
+.audio-on .volume-toggle .close {
+    display: block;
+}
+
+.audio-on .home .top-panel .entry {
+    -webkit-transform: -webkit-translateY(120px);
+    transform: translateY(120px);
+}

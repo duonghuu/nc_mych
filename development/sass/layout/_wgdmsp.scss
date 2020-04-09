@@ -1,0 +1,20 @@
+.dm-sp{
+  .danhmuc-box{
+    ul{
+      list-style-type: none;
+      li{
+        margin-bottom: 10px;
+
+        a{
+          color: #000;
+          font-weight: 700;
+          display: block;
+
+          &:hover, &.is--selected{
+            color: #6d6d6d;
+          }
+        }
+      }
+    }
+  }
+}

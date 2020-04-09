@@ -1,0 +1,141 @@
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to the home page.
+// -----------------------------------------------------------------------------
+%idx-tit {}
+
+%idx-tit-line {
+    content: "";
+    background: url($images-url + "idx-l.png");
+    height: 7px;
+    width: 134px;
+    position: relative;
+    bottom: -5px;
+}
+
+.idx-tit {
+    margin-bottom: 30px;
+    h4 {
+        @include setFont(30px, #000, 700);
+        line-height: 1;
+        span, a {
+            color: #000;
+            position: relative;
+            display: inline-block;
+            strong{
+                color: #b90202;
+            }
+        }
+    }
+}
+
+.idx-desc {
+    //@include setFont(15px, #808080, 400, $font-text);
+}
+%themanh-style{
+    @include setFont(15px, #6a6a6a, 700);
+    text-transform: uppercase;
+    margin-bottom: 0;
+    display: block;
+}
+.themanh-bg{}
+.themanh-main{
+    margin: 15px -#{em(3)};
+}
+.themanh-item{
+    padding: 0 em(3);
+    article{
+        background: #fff;
+        padding: 13px ;
+        border: 2px solid #e0e0e0;
+        @include boxstyle($display: flex, $justify-content: space-between, $align-items: center);
+        figure{
+            @include box(60px, 45px);
+            position: relative;
+            img{
+                @extend %img-fill;
+            }
+        }
+        .themanh-box{
+          p{
+            @extend %themanh-style;
+          }
+          a{
+            @extend %themanh-style;
+          }
+      }
+  }
+}
+.spnoibat-bg{}
+.spnoibat-bg .nav-pills{
+    background-color: $theme-color;
+    margin-bottom: 10px;
+  li{
+    a{
+        @include setFont(15px, #fff, 700);
+        text-transform: uppercase;
+        border-radius: 0;
+        padding: 14.5px 15px;
+        &.active, &:hover{
+            background-color: #ec3f3c;
+        }
+    }
+   @include doubly(){
+
+   } 
+  }
+
+}
+.dmspnoibat-main{}
+.spnoibat-item{
+  a{
+    @include boxstyle($display: flex, $justify-content: space-between);
+    figure{
+        @include box(98px, 68px);
+        margin: 0 13px 10px 0;
+        position: relative;
+      img{
+        @extend %img-fill;
+      }
+      & ~ div{
+        @include flex(1);
+        h3{
+            @include setFont(12px, #000, 400);
+            margin-bottom: 0;
+            @include line-clamp($font-size: 12px, $line-height: 1.4, $lines-to-show: 3, $max-height: true);
+        }
+        p{
+            @include setFont(14px, #f00, 700, "Arial");
+            margin-bottom: 0;
+            del{
+                color: #6d6d6d;
+                font-weight: 400;
+                display: inline-block;
+                margin-left: 7px;
+            }
+        }
+      }
+    }
+
+  }
+}
+.dknt-bg{
+    padding: 10px 0;
+    background-color: #fff;
+}
+.dknt-bg-flex{}
+.dknt-bg-flex{
+    @include boxstyle($display: flex, $align-items: center, $justify-content: space-between);
+  span{
+    margin-right: 20px;
+    @include setFont(16px, #444, 700);
+    text-transform: uppercase;
+  }
+}
+.dknt-box{
+    @include boxstyle($display: flex, $align-items: center, $justify-content: space-between);
+    @include flex(1);
+}
+.mxh{
+    @include flex(1);
+    @extend %mxh-style;
+}

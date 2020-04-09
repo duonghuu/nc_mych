@@ -1,0 +1,23 @@
+@media screen 
+	and (max-width: $device_size_mobile) {
+    @include setHeaderCenter;
+    @include showMobileMenu;
+    @include setProductColumnMobile(6, 2%);
+    // @include setTaiSaoFull;
+    @include setAboutMobile;
+    @include setSpnoibatSmall;
+    @include setTinVideoFull;
+    @include setFooterMobile;
+    @include setProductMobile;
+    @include setNewColumnMobile(6,2%);
+    #footer {
+        .copyright{
+            padding-bottom: 50px;
+        }
+      .ft-flex {
+        .ft-fanpage,.ft-baiviet  {
+          width: 100%;
+        }
+      }
+    }
+}

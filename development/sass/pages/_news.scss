@@ -1,0 +1,102 @@
+.othernews{
+    ul.khac{
+        list-style-type:none;
+        list-style-position: inside;
+        li{
+            margin:5px 0;
+            list-style-type:square;
+            a{
+                color:#4A4A4A;text-decoration:none;transition:0.4s;
+                i{
+                    margin-right:6px;
+                }
+                &:hover{
+                    color:#f00;
+                }
+            }
+        }
+    }
+}
+/*tin tuc layout verticle*/
+.news-tpl-grid{
+    @include grid($display: flex, $flex-wrap: wrap, $gutter: 2%);
+    .news-tpl-item{
+        box-shadow:0px 0px 10px #f3f3f3;background:#fff;
+        // float: left;
+        // @include setColumn(3, 2%  );
+        @include grid-col($col: 4, $grid-columns: 12, $gutter: 2%);
+        a{
+            display:block;
+            padding:10px;
+            color:#333!important;
+            figure{
+                position:relative;padding-top:70%;
+                img{
+                    
+                }
+            }
+            .info{
+                h5{
+                    
+                    @include setFont(15px, #333, 700);
+                    @include line-clamp(15px,1.3,3,true);
+                }
+                .desc{
+                    @include setFont(14px, #333);
+                    @include line-clamp(14px,1.5,4,false);
+                    text-align: justify;
+                    text-align-last: left;
+                }
+            }
+        }
+    }
+}
+
+.danhmuc-tin{
+    .title{
+        @include setTagAHover(#fff, #ff0);
+        @include boxstyle($display: flex, $justify-content: space-between, $flex-wrap: wrap, $align-items: center);
+        background-color: #2c2c2c;
+        margin-bottom: 10px;
+        padding: 13px 10px;
+        h3{
+            margin-bottom: 0;
+            @include setFont(18px, #fff, 700);
+            text-transform: uppercase;
+            a{
+
+            }
+        }
+        &>a{
+            @include setFont(14px, #fff);
+        }
+    }
+}
+.danhmuc-tincon{
+    @include grid($display: flex, $flex-wrap: wrap, $gutter: 2%);
+}
+.tincon-item{
+    @include grid-col($col: 3, $grid-columns: 12, $gutter: 2%);
+    a{
+        display: block;
+        figure{
+            position: relative;
+            padding-top: 100%;
+            overflow: hidden;
+            img{
+                @extend %img-fill;
+            }
+        }
+        h5{
+            @include setFont(16px, #000, 700);
+            @include line-clamp($font-size: 16px, $line-height: 1.5, $lines-to-show: 3, $max-height: true);
+        }
+        p{
+            @include setFont(14px, #333, 700);
+        }
+        .desc{
+            @include setFont(14px, #333);
+            @include line-clamp($font-size: 14px, $line-height: 1.5, $lines-to-show: 2, $max-height: true);
+        }
+    }
+}

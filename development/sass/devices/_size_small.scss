@@ -1,0 +1,18 @@
+@media screen 
+	and (min-width: $device_size_small)
+	and (max-width: $device_size_medium) 
+{
+  @include setHeaderCenter;
+  @include showMobileMenu;
+  @include setProductColumnMobile(6, 2%);
+  // @include setTaiSaoFull;
+  @include setSpnoibatSmall;
+  @include setTinVideoFull;
+  // @include setFooterMobile;
+  @include setProductMobile;
+  #footer {
+      .copyright{
+          padding-bottom: 50px;
+      }
+    }
+}

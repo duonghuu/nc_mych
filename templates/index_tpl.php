@@ -32,6 +32,7 @@
                                     
                                 </div>
                                <div class="luotxem"><i class="fa fa-eye"></i> <?=$k['luotxemhd']?> lượt xem</div>
+                               <?= likelayout($k["id"]) ?>
                             </div>
                         </div>
                     <?php } ?>

@@ -1,0 +1,62 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the header of the site/application.
+// -----------------------------------------------------------------------------
+.hd-hotline {
+}
+
+%hd-logo-style {
+}
+
+%hd-top-style{
+    margin: 0;
+    @include setFont(15px, $theme-color, 700);
+}
+
+.hd-bg {
+    @include relative($left: 0);
+    z-index: 450;
+    width: 100%;
+    
+}
+.hd-flex{
+    @include boxstyle($display: flex, $justify-content: space-between, $align-items: center);
+}
+.hd-right{
+    @include boxstyle($display: inline-flex, $justify-content: flex-end, $align-items: center, $flex-wrap: wrap);
+    @include flex(auto);
+}
+.hd-right__top{
+    @include boxstyle($display: flex, $justify-content: flex-end, $align-items: center);
+    width: 100%;
+    margin-bottom: 12px;
+}
+.hd-right-item{
+    @include boxstyle($display: flex, $align-items: center);
+    @include doubly{
+        margin-left: 60px;
+        a{
+            color: $theme-color;
+        }
+        p{
+            color: #ec3f3c;
+        }
+    }
+    a{
+        @extend %hd-top-style;
+        display: block;
+        color: #ec3f3c;
+    }
+    img{
+        max-width: 60px;
+        margin-right: 7px;
+    }
+    .hd-right-box{
+        @include flex(1);
+        p{
+            @extend %hd-top-style;
+        }
+
+    }
+
+
+}

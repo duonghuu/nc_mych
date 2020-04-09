@@ -1,0 +1,223 @@
+// set Left Right Template Mobile
+@mixin setLeftRightMobile{
+  div.main_content {
+      div.left{
+        float: none;
+          width: 100%;
+          margin-bottom: 1em;
+      }
+
+      div.right{
+        float: none;
+          width: 100%;
+          margin-bottom: 1em;
+        margin-left: 0;
+      }
+    }
+}
+// set Cart Template Mobile
+@mixin setCartMobile{
+  .gh_flex {
+      @include flex-wrap(wrap);
+
+      .left_gh{
+        float: none;
+          width: 100%;
+          margin-bottom: 1em;
+          margin-right: 0;
+          flex: unset;
+      }
+      
+      .right_gh{
+        float: none;
+          width: 100%;
+          margin-bottom: 1em;
+      }
+    }
+}
+// set Product Template Mobile
+@mixin setProductMobile{
+  .wap_pro{
+      @include flex-wrap(wrap);
+    }
+
+    .product_info, .zoom_slick{
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+/*========= COMMON ===============*/
+@mixin setIdxTitleSize(){
+  .idx-tit{
+    h4{
+      @include font-size(24, 16);
+
+      &:before, &:after{
+        display: none;
+      }
+    }
+  }
+  .tin-video-bg .tin-video-wrap .title{
+    @include font-size(24, 16);
+  }
+  }
+/*========= HEADER ===============*/
+@mixin setHeaderCenter(){
+  .hd-bg{
+    .hd-top{
+      display: none;
+    }
+    .hd-bot{
+      .hd-bot-flex{
+        min-height: 100px;
+        .logo{
+          width: 100%;
+              margin-top: unset;
+              padding-left: unset;
+              text-align: center;
+              img{
+                max-width: 100px !important;
+              }
+        }
+      }
+    }
+  }
+}
+/*========= MENU ===============*/
+@mixin showMobileMenu(){
+  .nav-bg {
+    display: none;
+  }
+  #valak_mmenu{
+    @include flexbox;
+    background-color: $bg-header-top;
+    
+  }
+  .toolbar{
+    background-color: $bg-header-top !important; 
+  }
+  .logo_valak{
+    background-color: $bg-header-top !important; 
+  }
+  .hd-bg{
+    display: block;
+  }
+}
+/*========= HOME ===============*/
+@mixin setProductDanhmuc($p_prodmCol: 3){
+  .pr-danhmuc-mobile{
+      @include grid($display: flex,  $flex-wrap: wrap, $gutter: 2%);
+      margin-top: 1em;
+      &-item{
+        @include grid-col($col: $p_prodmCol, $grid-columns: 12, $col-offset: null,
+         $gutter: 2%);
+        a{
+          @include flexbox;
+          @include justify-content(center);
+          @include align-items(center);
+          @include setFont(16px, #fff);
+          background-color:#2ca083;
+          border-radius: 3px;
+          padding: 4px;
+        }
+      }
+    }
+}
+@mixin setTaiSaoFull(){
+  .taisao-bg {
+      .taisao-box {
+        width: 100% !important;
+        float: none !important;
+        &:before {
+          display: none;
+        }
+      }
+    }
+}
+@mixin setTinVideoFull(){
+  .tin-video-bg {
+      .tin-video-flex {
+        .tin-bg {
+          width: 100%;
+          float: none;
+        }
+        .video-bg {
+          width: 100%;
+          float: none;
+          #video-idx {
+
+            #iframe{
+              height: 270px;
+            }
+          }
+        }
+      }
+    }
+}
+@mixin setSpnoibatSmall(){
+  .spnoibat-bg{
+    .spnoibat-main{
+      margin: 0 -1em;
+      .slick-box-item{
+        padding: 0 1em;
+      }
+    }
+  }
+}
+@mixin setAboutMobile(){
+  .about-flex{
+    .info{
+      width: 100% !important;
+    }
+    .about-img{
+      width: 100% !important;
+    }
+  }
+}
+/*========= PRODUCT ===============*/
+@mixin setProductColumnMobile($p_col: 6, $p_gutter: 0){
+  .pr-box{
+    @include grid-col($col: $p_col, $grid-columns: 12, $col-offset: null, $gutter: $p_gutter);  
+  }
+}
+/*========= NEW ===============*/
+@mixin setNewColumnMobile($p_col: 6, $p_gutter: 0){
+  .news-tpl-grid {
+    .news-tpl-item{
+      @include grid-col($col: $p_col, $grid-columns: 12, $gutter: $p_gutter);  
+    }
+  }
+}
+/*========= FOOTER ===============*/
+@mixin setFooterMobile(){
+  #footer {
+    .ft-flex {
+      @include flex-wrap(wrap);
+      .ft-info,.ft-bando {
+        width: 100%;
+        margin-bottom: 1em;
+      }
+      .ft-fanpage,.ft-baiviet  {
+        width: 48%;
+        margin-bottom: 1em;
+      }
+    }
+  }
+}
+@mixin setCopyrightCenter(){
+  .copyright {
+      .ft-wrap {
+        @include flex-wrap(wrap);
+        text-align: center;
+          .text {
+            width: 100%;
+          }
+
+          ul.ft-thongke {
+            width: 100%;
+            @include flex-wrap(wrap);
+            @include justify-content(center);
+          }
+      }
+  }
+}

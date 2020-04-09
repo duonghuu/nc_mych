@@ -1,0 +1,45 @@
+div.mxhft{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    z-index: 5;
+    margin:20px 0;
+
+    span{
+        @include setFont(15px, #fff, 700);
+        margin-right: 10px;
+    }
+    
+    a{
+        img{
+            max-height: 27px;
+        }
+        &+a{
+            margin-left: 7px;
+        }
+    }
+}
+%mxh-style{
+    @include boxstyle($display: inline-flex, $align-items: center, $justify-content: flex-end);
+    position: relative;
+    
+    a{
+        @include boxstyle($display: inline-flex, $align-items: center, $justify-content: center);
+        &+a{
+            margin-left: 10px;
+        }
+        img{
+            max-height: 15px;
+            object-fit: scale-down;
+            &:hover{
+                @include transition(all 1s ease);
+                transform: rotate(360deg);
+            }
+        }
+    }
+    span{
+        color:#fff;
+        font-size:15px;
+        margin-left: 9px;
+    }
+}

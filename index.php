@@ -60,6 +60,7 @@ if($_REQUEST['command']=='add' && $_REQUEST['productid']>0){
 		<meta name="geo.placename" content="<?=$row_setting['diachi_'.$lang]?>">
 		<meta name="author" content="<?=$row_setting['ten_'.$lang]?>">
 		<base href="//<?=$config_url?>/">
+		<meta name="google-site-verification" content="0bmGf84p3aUIdKns-0UZRTWodX75HZiOYeBhDPza51U" />
 		<meta name="google-site-verification" content="UGkbbDDlvNS-ZFkl73oNGAhbSQbf2SAlJHfU0ydUWao" />
 		<meta name="google-site-verification" content="NLqrwyUW-Ka0RukiVT_5Ktx7e3pfUMrm4dALzr_K8B8" />
 		<meta name="google-site-verification" content="mq_yvxw5krbWbJ8QEyT1h-AntWVXk9RTFCntDiVFQB8" />

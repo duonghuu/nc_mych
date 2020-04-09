@@ -1,0 +1,65 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+
+/// Container's maximum width
+/// @type Length
+$max-width: 1330px !default;
+$browser-context: 16;
+/* ======================== FONTS ======================== */
+$font-SFUSchadowBTBlackCondensed                : 'SFUSchadowBTBlackCondensed';
+$font-UTMHelvetIns                              : 'UTMHelvetIns';
+$font-roboto-mono                               : 'Roboto Mono', monospace;
+$font-open-sans                                 : 'Open Sans', sans-serif;
+$font-roboto-condensed                          : 'Roboto Condensed', sans-serif;
+$font-roboto                                    : 'Roboto', sans-serif;
+$font-barlow-semi-condensed                     : 'Barlow Semi Condensed', sans-serif;
+$font-montserrat                                : 'Montserrat', sans-serif;
+$font-muli                                      : 'Muli', sans-serif;
+$font-oswald                                    : 'Oswald', sans-serif;
+$font-utmalexander                              : 'UTMAlexander';
+$font-vnserpentinebold                              : 'VnSerpentineBold';
+
+$font-title             : $font-roboto;
+$font-text              : $font-roboto;
+$font-awesome           : 'Font Awesome 5 Free';
+$font-second            : 'Arial';
+/* ======================== HEADER ======================== */
+$bg-header-top          : #00682d;
+$bg-header              : #fff;
+$bg-breadcrumb           : #f7f6f6;
+/* ======================== MENU ======================== */
+$font-menu              : $font-roboto;
+$color-menu-hover       : #ff0;
+$bg-menu                : transparent;
+$bg-menu-item           : #fff;
+$bg-menu-item-hover     : #ea0018;
+/* ======================== FOOTER ======================== */
+$bg-copyright       : #111;
+$bg-footer          : #111;
+$theme-color        : #0872ba;
+$height-map         : 440px;
+/* ======================== URL ======================== */
+$font-url           : 'css/fonts/';
+$font-awesome-url   : 'css/fontawesome/webfonts/';
+$images-url         : 'images/';
+/// Regular font family
+/// @type List
+$text-font-stack: 'Open Sans', 'Helvetica Neue Light', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif !default;
+
+/// Code (monospace) font family
+/// @type List
+$code-font-stack: 'Courier New', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Monaco', monospace !default;
+
+
+/// Breakpoints map
+/// @prop {String} keys - Keys are identifiers mapped to a given length
+/// @prop {Map} values - Values are actual breakpoints expressed in pixels
+
+
+
+/// Relative or absolute URL where all assets are served from
+/// @type String
+/// @example scss - When using a CDN
+///   $base-url: 'http://cdn.example.com/assets/';
+$base-url: '/' !default;

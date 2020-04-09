@@ -1,0 +1,63 @@
+.dmspbox{
+    float: left;
+    width: percentage(247/1300);
+    position: relative;
+    &:hover {
+        .dmsp-container{
+            display: block;
+        }
+    }
+  .tit{
+        margin: 0;
+        background-color: #ec202a;
+        cursor: pointer;
+        @include setFont(16px, #fff, 700);
+        @include boxstyle($display: flex, $align-items: center, $justify-content: center);
+        line-height: 51px;
+        i{
+            margin-right: 7px;
+        }
+    }
+    .dmsp-container{
+        display: none;
+        &>ul{
+            display: block;
+        }
+        ul{
+            @extend %sub-menu-list;
+            min-width: 100%;
+            li{
+                position: relative;
+                a{
+                    @include setFont(14px, #333, 400, $font-menu);
+                    text-decoration: none;
+                    padding: 5px 10px;
+                    white-space: nowrap;
+                    display: block;
+                    @include transition(padding-left .2s linear);
+                    &:hover{
+                        padding-left: 25px;
+                    }
+                    &:after {
+                        content: "\f105";
+                        font:{
+                            weight: 700;
+                            family: $font-awesome;
+                        };
+                        @include absolute($top: 0, $right: 5px);
+                    }
+                }
+                @include setTagAHover(#333, $bg-menu);
+                &:hover{
+                    &>ul{
+                        display: block;
+                    }
+                }
+                ul {
+                    left: 100%;
+                    top: 0;
+                }
+            }
+        }
+    }
+}

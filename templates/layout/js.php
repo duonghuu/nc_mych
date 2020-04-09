@@ -63,6 +63,20 @@
       $("#loader-wrapper").fadeOut(500);
     },400);
     
+    $('.likebtn').click(function(e) {
+      var s_id = $(this).data("id");
+      $.ajax
+      ({
+        type: "POST",
+        url: "ajax/ajax_like.php",
+        data: {id:s_id},
+        success: function(msg)
+        {
+
+        }
+      });
+
+    });
     $('#tabs a').click(function(e) {
       var id = $(this).attr('href');
       $('#tabs li').removeClass('active');

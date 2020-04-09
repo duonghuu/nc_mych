@@ -1,0 +1,132 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the footer of the site/application.
+// -----------------------------------------------------------------------------
+%map-style {
+    overflow: hidden;
+    width: 100%;
+    height: $height-map;
+}
+%copyright-font {
+    @include setFont(12px, #fff, 400);
+}
+%ft-thongke-style{
+    @extend %reset-list;
+    li {
+        @include setFont(15px, #444444db);
+        padding: 5px 0;
+        span {
+            @include setFont(13px, #f00);
+        }
+        @include doubly{
+            &:before {
+                // content: "";
+                // background-color: #fff;
+                // @include box(1px, 12px);
+                // @include absolute($left: -1em);
+            }
+        }
+    }
+}
+.ft-thongke{
+    ul{
+        @extend %ft-thongke-style;
+    }
+}
+.tren-ft{
+    background: #F6F6F6;
+        padding: 50px 0px;
+  &-flex{
+    @include boxstyle($display: flex, $justify-content: space-between);
+  }
+}
+.ft-info {
+    position: relative;
+    @include flex(1);
+    margin-left: 2%;
+    .content {
+    }
+}
+.ft-logo {
+    width: 23%;
+    a{
+        img{
+        }
+    }
+}
+.ft-top{
+    background: #F6F6F6;
+    padding: 40px 0px;
+}
+#footer {
+    position: relative;
+    width: 100%;
+    z-index: 5;
+    /* margin-top:auto; */
+    background: #fff;
+    padding: 50px 0 0;
+    .ft-flex {
+        @include boxstyle($display: flex, $justify-content: space-between);
+        
+        .ft-bando {
+        }
+        .ft-fanpage {
+            .fanpageplace {
+                // height: 250px;
+                // overflow: hidden;
+            }
+        }
+        .ft-baiviet {
+            width: percentage(1/5);
+            ul {
+                @extend %reset-list;
+                li {
+                    @include setTagAHover(#444444db, #f00);
+                    a {
+                        @include setFont(15px, #444444db);
+                        display: inline-block;
+                        padding: 5px 0;
+                    }
+                    &+li{
+                    }
+                }
+            }
+        }
+        .ft-dknt{
+            .maildesc{
+            }
+        }
+    }
+    .ft-company {
+        a {
+        }
+    }
+    .ft-tit {
+        margin-bottom: 10px;
+        span {
+            @include boxstyle($display: inline-flex, $align-items: center);
+            @include setFont(16px, #444, 700);
+        }
+    }
+    .copyright {
+        position: relative;
+        background: #2c3e50;
+        .ft-wrap {
+            min-height: 54px;
+            @include boxstyle($display: flex, $align-items: center, $justify-content: center);
+            .text {
+                @extend %copyright-font;
+                margin: 5px 0;
+            }
+            ul.ft-thongke {
+                
+            }
+        }
+    }
+}
+.codebando{
+    // @extend %map-style;
+    // margin: 40px 0;
+    // iframe{
+    //     @extend %map-style;    
+    // }
+}

@@ -1,11 +1,13 @@
+
 <h1 class="visit_hidden"><?=$row_setting['ten_'.$lang]?></h1>
+<?php if(!empty($splike)){ ?>
 <div class="danhmuc_pro clearfix">
     <div class="margin-auto">
         <div class="box-white">
             <h3 class="tit-web">Sản phẩm yêu thích</h3>
             <div class="box-content box-pd10">
-                <div class="chay_tkhd scroll">
-                    <?php foreach($tikiemhangdau as $k){?>
+                <div class="chay_tkhd scroll" id="splike-box">
+                    <?php foreach($splike as $k){?>
                         <div class="item_tkhd">
                             <div class="product_images">
                                 <a  target="_blank" href="san-pham/<?=$k['tenkhongdau']?>.html">
@@ -41,6 +43,7 @@
         </div>
     </div>
 </div>
+<?php } ?>
 <?php if(!empty($spdaxem)){ ?>
 <div class="danhmuc_pro clearfix">
     <div class="margin-auto">
@@ -75,6 +78,7 @@
                                     
                                 </div>
                                <div class="luotxem"><i class="fa fa-eye"></i> <?=$k['luotxemhd']?> lượt xem</div>
+                               <?= likelayout($k["id"]) ?>
                             </div>
                         </div>
                     <?php } ?>
@@ -208,6 +212,7 @@
                                     
                                 </div>
                                <div class="luotxem"><i class="fa fa-eye"></i> <?=$k['luotxemhd']?> lượt xem</div>
+                               <?= likelayout($k["id"]) ?>
                             </div>
                         </div>
                     <?php } ?>

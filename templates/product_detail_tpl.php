@@ -677,6 +677,7 @@ $(document).ready(function() {
                                         <?php } ?>
                                     </div>
                                     <div class="luotxem"><i class="fa fa-eye"></i> <?=$k['luotxem']+$k['luotxem2']?> lượt xem</div>
+                                    <?= likelayout($k["id"]) ?>
                                 </div>
                             </div>
                         <?php } ?>
@@ -715,6 +716,7 @@ $(document).ready(function() {
                                         <?php } ?>
                                     </div>
                                      <div class="luotxem"><i class="fa fa-eye"></i> <?=$k['luotxem']+$k['luotxem2']?> lượt xem</div>
+                                     <?= likelayout($k["id"]) ?>
                                 </div>
                             </div>
                         <?php } ?>

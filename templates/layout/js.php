@@ -69,10 +69,15 @@
       ({
         type: "POST",
         url: "ajax/ajax_like.php",
+        dataType: 'json',
         data: {id:s_id},
-        success: function(msg)
+        success: function(kq)
         {
-
+          console.log('a_ds_like: '+kq.a_ds_like);
+          console.log('key: '+kq.key);
+          console.log('ds: '+kq.ds);
+          $('.likebtn[data-id="'+ s_id +'"]').removeClass("active");
+          $('.likebtn[data-id="'+ s_id +'"]').addClass(kq.class);
         }
       });
 

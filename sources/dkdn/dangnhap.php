@@ -35,6 +35,10 @@ if(!empty($_POST)&& isset($_POST['username'])){
 				$_SESSION['login']['dienthoai'] = $row['dienthoai'];
 				$_SESSION['login']['id_tv'] = $row['id'];
 				
+				if(!empty($row["splike"]))
+				  $a_ds_like = explode(",", $row["splike"]);
+				$_SESSION["splike"] = $a_ds_like;
+				
 				// $sid = session_id();
 				// $ip = getRemoteIPAddress();
 				// $time = time();

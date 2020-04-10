@@ -1,17 +1,17 @@
 <?php
 	session_start();
-	/* @define ( '_template' , './templates/'); */
+	@define ( '_template' , './templates/');
 	@define ( '_source' , '../sources/');
 	@define ( '_lib' , '../libraries/');
 	include_once _lib."Mobile_Detect.php";
 	$detect = new Mobile_Detect;
 	$deviceType = ($detect->isMobile() ? ($detect->isTablet() ? 'tablet' : 'phone') : 'computer');
-	if($deviceType != 'computer'){
-		@define ( '_template' , './m/');
+	// if($deviceType != 'computer'){
+	// 	@define ( '_template' , './m/');
 		
-	}else{
-		@define ( '_template' , './templates/');
-	}
+	// }else{
+	// 	@define ( '_template' , './templates/');
+	// }
 	
 	if(!isset($_SESSION['lang']))
 	{
@@ -36,7 +36,7 @@
 			if($_POST["type"]!='' && $_POST["type"]=='thanh-toan'){
 				redirect("https://".$config_url."/thanh-toan.html");
 			}else{
-				redirect("https://".$config_url."/gio-hang.html");
+				redirect("https://".$config_url."/thanh-toan.html");
 			}
 
 		}

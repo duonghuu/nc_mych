@@ -40,6 +40,18 @@ if($_REQUEST['command']=='add' && $_REQUEST['productid']>0){
 	}
 	//echo ($template);
 //print_r($_SESSION['daxem']);
+	if(isset($_SESSION['login']['id_tv']) && $_SESSION['login']['id_tv'] > 0){
+	  $s_idtv = $_SESSION['login']['id_tv'];
+	  $d->reset();
+	  $d->setTable("member");
+	  $d->setWhere("id", $s_idtv);
+	  $d->select("splike");
+	  $ds_like = $d->fetch_array();
+	  $a_ds_like = array();
+	  if(!empty($ds_like["splike"]))
+	    $a_ds_like = explode(",", $ds_like["splike"]);
+	 	$_SESSION["splike"] = $a_ds_like;
+	}
 	?>
 	<!DOCTYPE html>
 	<html lang="vi">

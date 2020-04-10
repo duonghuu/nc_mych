@@ -26,6 +26,14 @@
         $spdaxem = $d->result_array();
     }
 
+    if(!empty($_SESSION["splike"])){
+
+        $d->reset();
+        $sql_detail = "select id,photo,thumb,ten_$lang,giaban,tenkhongdau,giacu,luotxem,luotxem+luotxem2 as luotxemhd ,gia
+         from #_product where id in (".implode($_SESSION["splike"],",").") order by luotxemhd desc limit 0,30";
+        $d->query($sql_detail);
+        $splike = $d->result_array();
+    }
     $d->reset();
     $sql= "select ten_$lang,id,tenkhongdau,thumb2,thumb from #_product_list where hienthi=1 and danhmuc!=0 order by stt,id desc";
     $d->query($sql);

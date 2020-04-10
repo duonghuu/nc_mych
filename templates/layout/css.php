@@ -6,7 +6,10 @@
 <link type="text/css" rel="stylesheet" href="main.css" />
 <script> var base_url = "https://<?=$config_url?>";</script>
 <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
-<?php /* <link href="style.css" rel="stylesheet" type="text/css" />
+<?php /* 
+<script type="text/javascript" src="js/jquery.min.js"></script>
+
+<link href="style.css" rel="stylesheet" type="text/css" />
 <link href="js/fancybox3/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"  media="screen" />
 <link href="js/jssor/jssor.css" rel="stylesheet" type="text/css" >
 <link href="css/slick.css" type="text/css" rel="stylesheet" /> */?>

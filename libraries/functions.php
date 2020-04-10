@@ -43,7 +43,7 @@ function getCurrentPageURL() {
     if ($_SERVER["HTTPS"] == "on") {$pageURL .= "s";}
     $pageURL .= "://";
     if ($_SERVER["SERVER_PORT"] != "80") {
-        $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"];
+        $pageURL .= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
     } else {
         $pageURL .= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
     }
@@ -87,9 +87,9 @@ function deal_price($soluongdeal,$soluongban)
 }
 function likelayout($pid)
 {
-
   if($_SESSION['login']['id_tv'] > 0){
-    echo '<span data-id="'.$pid.'" class="likebtn"><i class="fa heart"></i></span>';
+    $clsac = (in_array($pid, $_SESSION["splike"]))? 'active' : '';
+    echo '<span data-id="'.$pid.'" class="likebtn '.$clsac.'"><i class="fa heart"></i></span>';
   }
 }
 /*function getDefaultData() {

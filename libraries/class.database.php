@@ -99,9 +99,10 @@ class database{
 			$this->sql = str_replace('#_', $this->refix, $sql);
 		$this->result = mysql_query($this->sql,$this->db);
 		if(!$this->result){
-			echo mysql_error();
+			//echo mysql_error();
 			#die(mysql_errno($this->db) . ": " . mysql_error($this->db));
-			die("syntax error: ".$this->sql);
+			//die("syntax error: ".$this->sql);
+			die(mysql_error($this->db)."</br>Syntax error: ".$this->sql);
 		}
 		return $this->result;	
 	}

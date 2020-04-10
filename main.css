@@ -1185,6 +1185,8 @@ header#header {
   padding: 6px 0px 13px 0px;
   display: flex;
   align-items: center; }
+  .header-fixed .silogan_header {
+    display: none; }
 
 .silogan_header img {
   margin-right: 5px; }
@@ -5257,7 +5259,8 @@ h3.tit-web .tit-deal {
   border: 1px solid #cbcac9; }
 
 .info_sp {
-  padding: 5px; }
+  padding: 5px;
+  position: relative; }
 
 .pa_top {
   padding-top: 30px; }
@@ -5960,8 +5963,8 @@ div.fixmenu {
   overflow: hidden; }
 
 .tt_ft2 {
-  display: none;
-  margin: 10px 0px; }
+  margin: 10px 0px;
+  text-align: center; }
 
 .danhmuc_mb {
   display: none; }

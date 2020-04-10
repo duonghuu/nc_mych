@@ -89,7 +89,9 @@
 						<li><a href="ho-tro/<?=$result_hotro[$i]['tenkhongdau']?>.html" title="<?=$result_hotro[$i]['ten_vi']?>"><?=$result_hotro[$i]['ten_vi']?></a></li>
 						<?php } ?>
 					</ul>
-					<div class="tt_ft"><?=$footer['noidung_'.$lang]?></div>
+					<?php /* 
+					<div class="tt_ft"><?=$footer['noidung_'.$lang]?></div> 
+					*/?>
 				</div>
 			</div>
 			<div class="content_bottom content2">

@@ -59,17 +59,17 @@
             <amp-accordion>
                
                 <?php if($row_detail["thongtinthem_vi"]!=''){?>
-                <section>
-                    
-                    <div><?=ampify($row_detail["thongtinthem_vi"])?></div>
-                </section>
+                    <section>
+                        <h4>Chi tiết sản phẩm</h4>
+                        <div><?=ampify($row_detail["thuoctinh"])?></div>
+                    </section>
                 <?php }?>
-                <?php if($row_detail["mota_".$lang]!=''){?>
-                <section>
-                  
-                    <div><?=ampify($row_detail["mota_".$lang])?></div>
-                </section>
-                <?php }?>
+                <?php if($row_detail["noidung_".$lang]!=''){?>
+                    <section>
+                      <h4>Hình thức giao hàng</h4>
+                      <div><?=ampify($row_detail["noidung_".$lang])?></div>
+                  </section>
+              <?php }?>
             </amp-accordion>
 
         </div>

@@ -63,6 +63,10 @@
 	                               	} 
 	                         	$result.='</div>
 	                    	</div>';
+	                    	if($_SESSION['login']['id_tv'] > 0){
+	                    	  $clsac = (in_array($k["id"], $_SESSION["splike"]))? 'active' : '';
+	                    	  $result.='<span data-id="'.$k["id"].'" class="likebtn '.$clsac.'"><i class="fa heart"></i></span>';
+	                    	}
 	                    $result.='</div>
                         	<div class="hover_bot">
                                 <a href="san-pham-cung-nghanh.html">SP cùng ngành</a>

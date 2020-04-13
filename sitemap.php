@@ -2,8 +2,13 @@
 		session_start();
 		$session=session_id();
 		@define ( '_lib' , './libraries/');
-
+		if($lang=="")
+		{
+			$lang='vi';
+		}
 		include_once _lib."config.php";
+		$config['arrayDomainSSL']=array("mych.vn"); 
+		include_once _lib."checkSSL.php";
 		include_once _lib."functions.php";
 		include_once _lib."class.database.php";
 
@@ -38,9 +43,15 @@
 			$result_data = $d->result_array();
 			foreach ($result_data as $key => $v) { 
 				if($tbl=='product'){
-					urlElement('/'.$t_com.'/'.$v["tenkhongdau"].'.html',$priority,$v['ngaytao']);
+					if(!empty($v["tenkhongdau"])){
+
+						urlElement('/'.$t_com.'/'.$v["tenkhongdau"].'.html',$priority,$v['ngaytao']);
+					}
 				}else if($tbl=='product_list'){
-					urlElement('/'.$t_com.'/'.$v["tenkhongdau"],$priority,$v['ngaytao']);
+					if(!empty($v["tenkhongdau"])){
+
+						urlElement('/'.$t_com.'/'.$v["tenkhongdau"],$priority,$v['ngaytao']);
+					}
 				}else if($tbl=='product_cat'){
 
 					$d->reset();

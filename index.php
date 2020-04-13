@@ -84,6 +84,7 @@ if($_REQUEST['command']=='add' && $_REQUEST['productid']>0){
 		<meta name="google-site-verification" content="3eI3NClOdQgDKMYNw-DtJ1bmiqcsTC-6l1JDACwJ6Z0" />
 		
 		<?php if($source=='product' || $source=='baiviet'){?>
+			<link rel="canonical" href="<?=getCurrentPageURL_CANO()?>" />
 			<link rel="amphtml" href="<?=getCurrentPageURL_AMP()?>" />
 		<?php } ?>
 		<?=$share_facebook?>

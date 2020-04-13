@@ -5,7 +5,7 @@
 <meta name="robots" content="index, follow" />
 <meta name="author" content="<?=$row_setting['ten_'.$lang]?> [<?=$row_setting['email']?>]" />
 <meta http-equiv="content-language" content="vi" />
-<link rel="canonical" href="<?=getCurrentPageURL()?>" />
+<link rel="canonical" href="<?=getCurrentPageURL_CANO()?>" />
 <link href="images/logo.png" rel="shortcut icon" type="image/x-icon" />
 <?=$share_facebook?>
 <!-- <meta property="fb:app_id" content="917571318303635" />-->

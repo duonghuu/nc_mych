@@ -308,6 +308,7 @@
                                         <?php } ?>
                                     </div>
                                 </div>
+                                <?= likelayout($k["id"]) ?>
                             </div>
                             <div class="hover_bot">
                                 <a href="san-pham-cung-nghanh.html&<?=$k['tenkhongdau']?>">SP cùng ngành</a>

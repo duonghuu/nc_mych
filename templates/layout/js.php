@@ -62,8 +62,7 @@
     setTimeout(function(){
       $("#loader-wrapper").fadeOut(500);
     },400);
-    
-    $('.likebtn').click(function(e) {
+    $('body').on('click', '.likebtn', function(e) {
       var s_id = $(this).data("id");
       $.ajax
       ({

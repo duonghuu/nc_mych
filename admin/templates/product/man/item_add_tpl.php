@@ -619,7 +619,7 @@ function get_main_sub()
             <div class="clear"></div>
         </div>
         
-        <div class="formRow lang_hidden lang_vi active">
+        <div class="formRow lang_hidden lang_vi active none">
             <label>Vận chuyển</label>
             <div class="ck_editor">
                 <textarea id="thongtinthem_vi" name="thongtinthem_vi"><?=@$item['thongtinthem_vi']?></textarea>

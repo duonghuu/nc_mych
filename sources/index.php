@@ -17,23 +17,44 @@
 
     $a_cl = array_column($_SESSION["daxem"],'productid');
 
-    if(!empty($a_cl)){
+        if(!empty($a_cl)){
+            $s_a_cl = ""; 
+            $last_key = key( array_slice( $a_cl, -1, 1, TRUE ) );
+            foreach ($a_cl as $key => $value) {
+                $s_a_cl .= $value;
+                if($key<$last_key){
+                    $s_a_cl .=",";
+                }
+            }
+            if(!empty($s_a_cl)){
+                $d->reset();
+                $sql_detail = "select id,photo,thumb,ten_$lang,giaban,tenkhongdau,giacu,luotxem,luotxem+luotxem2 as luotxemhd ,gia
+                 from #_product where id in (".$s_a_cl.") order by luotxemhd desc limit 0,30";
+                $d->query($sql_detail);
+                $spdaxem = $d->result_array();
+            }
+        }
 
-        $d->reset();
-        $sql_detail = "select id,photo,thumb,ten_$lang,giaban,tenkhongdau,giacu,luotxem,luotxem+luotxem2 as luotxemhd ,gia
-         from #_product where id in (".implode($a_cl,",").") order by luotxemhd desc limit 0,30";
-        $d->query($sql_detail);
-        $spdaxem = $d->result_array();
-    }
-
-    if(!empty($_SESSION["splike"])){
-
-        $d->reset();
-        $sql_detail = "select id,photo,thumb,ten_$lang,giaban,tenkhongdau,giacu,luotxem,luotxem+luotxem2 as luotxemhd ,gia
-         from #_product where id in (".implode($_SESSION["splike"],",").") order by luotxemhd desc limit 0,30";
-        $d->query($sql_detail);
-        $splike = $d->result_array();
-    }
+        if(!empty($_SESSION["splike"])){
+            $s_a_cl = ""; 
+            $last_key = key( array_slice( $_SESSION["splike"], -1, 1, TRUE ) );
+            foreach ($_SESSION["splike"] as $key => $value) {
+                if(empty($value)){
+                    continue;
+                }
+                $s_a_cl .= $value;
+                if($key<$last_key){
+                    $s_a_cl .=",";
+                }
+            }
+            if(!empty($s_a_cl)){
+                $d->reset();
+                $sql_detail = "select id,photo,thumb,ten_$lang,giaban,tenkhongdau,giacu,luotxem,luotxem+luotxem2 as luotxemhd ,gia
+                 from #_product where id in (".$s_a_cl.") order by luotxemhd desc limit 0,30";
+                $d->query($sql_detail);
+                $splike = $d->result_array();
+            }
+        }
     $d->reset();
     $sql= "select ten_$lang,id,tenkhongdau,thumb2,thumb from #_product_list where hienthi=1 and danhmuc!=0 order by stt,id desc";
     $d->query($sql);

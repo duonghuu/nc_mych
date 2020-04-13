@@ -12,6 +12,11 @@
 	$row_setting= $d->fetch_array();
 
 	$d->reset();
+		$sql= "select noidung_$lang from #_company where type='textxacnhan'";
+		$d->query($sql);
+		$textxacnhan = $d->fetch_array();
+
+	$d->reset();
 	$sql_setting = "select * from #_bgweb where type='bgweb' limit 0,1";
 	$d->query($sql_setting);
 	$row_background= $d->fetch_array();

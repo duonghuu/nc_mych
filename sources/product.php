@@ -11,7 +11,10 @@ if($com=='deal-gia-soc'){
 @$id=  addslashes($_GET['id']);
 		#các sản phẩm khác======================
 if($id!=''){
-
+	$d->reset();
+	$sql= "select noidung_$lang from #_company where type='vchuyen'";
+	$d->query($sql);
+	$row_vchuyen = $d->fetch_array();
 	$d->reset();
 	$sql= "select noidung_$lang from #_company where type='van-chuyen'";
 	$d->query($sql);

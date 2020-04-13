@@ -137,7 +137,7 @@
 			</div>
 			<div class="clear"></div>
 		</div>
-		<div class="formRow">
+		<div class="formRow none">
 			<label>Text xác nhận đơn hàng</label>
 			<div class="formRight">
 				<input type="text" value="<?=@$item['confirmtext']?>" name="confirmtext" title="Nhập text" class="tipS" />

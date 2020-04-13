@@ -35,7 +35,7 @@ $giao_thu = $thu['vi'][date('w',strtotime("+".$max_day." days"))];
         Thông tin chi tiết về đơn hàng đã được gửi đến địa chỉ mail <span><?= $_SESSION['thanks']["email"] ?></span>. Nếu không tìm thấy, vui lòng kiểm tra trong hộp thư <strong>Spam</strong> hoặc <strong>Junk Folder</strong>.
         </div>
         <div class="thanks-note2">
-        <i class="fa fa-info-circle" aria-hidden="true"></i> <?= $row_setting["confirmtext"] ?>
+        <i class="fa fa-info-circle" aria-hidden="true"></i> <?= $textxacnhan["noidung_$lang"] ?>
         </div>
     </div>
 </div>

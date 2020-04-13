@@ -25,16 +25,25 @@ if($_SESSION['login_admin']['type']=='daily' && !empty($_SESSION['login_admin'][
     	<li<?php if($_GET['com']=='city') echo ' class="this"' ?> ><a href="index.php?com=city&act=man_list">Quản lý Tỉnh/Thành</a></li>   
 
     	<li<?php if($_GET['com']=='city') echo ' class="this"' ?> ><a href="index.php?com=city&act=man_cat">Quản lý Quận/Huyện</a></li> 	
-    	
+
+      <li<?php if($_GET['type']=='vchuyen') echo ' class="this"' ?>>
+      <a href="index.php?com=company&act=capnhat&type=vchuyen" title="">Nội dung vận chuyển</a></li>
       <?php }?>	
     	
 	
 	   </ul>
   </li>
 
-  <li class="categories_li <?php if($_GET['com']=='order') echo ' activemenu' ?>" id="menu21"><a href="index.php?com=order&act=man&tinhtrang=1" title=""><span>Đơn hàng</span></a>
+  <li class="categories_li <?php if($_GET['com']=='order') echo ' activemenu' ?>" id="menu21">
+    <a href="index.php?com=order&act=man&tinhtrang=1" title=""><span>Đơn hàng</span></a>
     </li>
-
+    <ul class="sub">
+      
+    <?php if($_SESSION['login_admin']['type']!='daily') { ?>
+      <li<?php if($_GET['type']=='vchuyen') echo ' class="this"' ?>>
+      <a href="index.php?com=company&act=capnhat&type=textxacnhan" title="">Text xác nhận đơn hàng</a></li>
+    <?php } ?>
+    </ul>
       <?php /* if($_SESSION['login_admin']['type']!='daily') { ?>  
           <li<?php if($_GET['com']=='order' && $_GET['tinhtrang']=='1') echo ' class="this"' ?> ><a href="index.php?com=order&act=man&tinhtrang=1">Chờ thanh toán</a></li>
           <li<?php if($_GET['com']=='order' && $_GET['tinhtrang']=='2') echo ' class="this"' ?> ><a href="index.php?com=order&act=man&tinhtrang=2">Chờ lấy hàng</a></li>

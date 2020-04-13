@@ -37,6 +37,8 @@
                 <textarea id="noidung_vi" name="noidung_vi"><?=@$item['noidung_vi']?></textarea>
 			</div>
 			<div class="clear"></div>
+			<?php if($type == "vchuyen"){ ?><p><strong style="color: #f00">[{%ngay%} : Ngày lấy từ cơ sở dữ liệu]
+				</strong></p><?php } ?>
 		</div>
 
 		<div class="formRow lang_hidden lang_en">

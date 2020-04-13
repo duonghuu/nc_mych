@@ -421,7 +421,15 @@ $(document).ready(function() {
                         <li class="mausp w_propre">
                             <span>Vận chuyển:</span>
                             <div class="div_wrap">
-                                <?=$row_detail['thongtinthem_vi']?>
+                                <?php /* 
+                                <?=$row_detail['thongtinthem_vi']?> 
+                                */
+                                $d->reset();
+                                $sql= "select ten_$lang from #_baiviet where id='".$row_detail["id_tggiao"]."'";
+                                $d->query($sql);
+                                $ten_vchuyen = $d->fetch_array();
+                                echo str_replace('%ngay%', $ten_vchuyen["ten_$lang"], $row_vchuyen["noidung_$lang"]);
+                                ?>
                                 <div class="w_phisip">
                                     <div class="lbl_vanchuyen">Vận chuyển tới 
                                         <div class="dist_city">

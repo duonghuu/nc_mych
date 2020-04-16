@@ -523,6 +523,7 @@ $(document).ready(function() {
                               <div class="buy_cart">
                                 <div class="addcart" title="Mua hàng" rel="<?=$row_detail['id']?>">Thêm vào giỏ hàng</div>
                                 <div class="muangay" title="Mua ngay" rel="<?=$row_detail['id']?>">Mua ngay</div>
+                                <?= likelayout($row_detail['id'],true) ?>
                               </div><!--end buy_cart-->  
                             <?php }else{?>
                                 <div class="btn-het-deal">Hết hàng</div>
@@ -543,6 +544,7 @@ $(document).ready(function() {
                               <div class="buy_cart">
                                 <div class="addcart" title="Mua hàng" rel="<?=$row_detail['id']?>">Thêm vào giỏ hàng</div>
                                 <div class="muangay" title="Mua ngay" rel="<?=$row_detail['id']?>">Mua ngay</div>
+                                <?= likelayout($row_detail['id'],true) ?>
                               </div><!--end buy_cart-->
                           <?php /* if($row_detail['soluongton'] > 0){?>
                           <?php }else{?>

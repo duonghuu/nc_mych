@@ -85,10 +85,13 @@ function deal_price($soluongdeal,$soluongban)
 	$phantram = round($ketqua*100);
 	return $phantram;	
 }
-function likelayout($pid)
+function likelayout($pid,$lay2 = false)
 {
   if($_SESSION['login']['id_tv'] > 0){
     $clsac = (in_array($pid, $_SESSION["splike"]))? 'active' : '';
+    if($lay2)
+    echo '<span data-id="'.$pid.'" class="likebtn lay2 '.$clsac.'">Yêu thích <i class="fa heart"></i></span>';
+  else
     echo '<span data-id="'.$pid.'" class="likebtn '.$clsac.'"><i class="fa heart"></i></span>';
   }
 }

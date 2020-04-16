@@ -133,8 +133,10 @@
 			</div>
 		</div>
 		<div class="tt_ft2"><?=$footer['noidung_'.$lang]?></div>
+		<?php /* 
 		<div class="thongke">
-			2019 Copyright © Mych.vn.
-		</div>
+					2019 Copyright © Mych.vn.
+				</div> 
+		*/?>
 	</div>
 </div>

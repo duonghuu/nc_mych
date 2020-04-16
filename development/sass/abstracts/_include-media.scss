@@ -51,6 +51,7 @@ $breakpoints: (
 ///
 $media-expressions: (
   'screen': 'screen',
+  'only screen': 'only screen',
   'print': 'print',
   'handheld': 'handheld',
   'landscape': '(orientation: landscape)',

@@ -1,7 +1,21 @@
+.buy_cart{
+    position: relative;
+}
 .likebtn{
     @include absolute($right: 10px, $bottom: 0);
     @include setFont(23px, #000, 700);
     cursor: pointer;
+    &.lay2{
+        @include relative($right: unset, $bottom: 0);
+        @include setFont(16px, #000, 700);
+        border-width: 1px;
+        border-style: solid;
+        margin: 0 5px 0 20px;
+        padding: 0 5px;
+        line-height: 50px;
+        box-sizing: border-box;
+
+    }
     @at-root .active#{&}{
         color: #f00;
     }
@@ -14,3 +28,17 @@
         }
     }
 }
+@include media('<919px', 'only screen') {
+    .likebtn{
+        &.lay2{
+            line-height: 35px; 
+        }
+    }
+};
+@include media('<426px', 'only screen') {
+    .likebtn{
+        &.lay2{
+            margin-top: 10px;
+        }
+    }
+};

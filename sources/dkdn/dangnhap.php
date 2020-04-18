@@ -38,6 +38,10 @@ if(!empty($_POST)&& isset($_POST['username'])){
 				if(!empty($row["splike"]))
 				  $a_ds_like = explode(",", $row["splike"]);
 				$_SESSION["splike"] = $a_ds_like;
+
+				if(!empty($row["spview"]))
+				  $a_ds_view = explode(",", $row["spview"]);
+				$_SESSION["spview"] = $a_ds_view;
 				
 				// $sid = session_id();
 				// $ip = getRemoteIPAddress();

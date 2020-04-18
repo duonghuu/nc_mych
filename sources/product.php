@@ -34,8 +34,37 @@ if($id!=''){
 	$id_listhome=$row_detail["id_list"];
 	$id_cathome=$row_detail["id_cat"];
 	$id_itemhome=$row_detail["id_item"];
+	daxem($row_detail["id"]);
+	$a_ds_view = array();
 	if(isset($_SESSION["login"]) && $_SESSION["login"]["id_tv"]>0){
-		daxem($row_detail["id"]);
+			
+		  $s_idtv = $_SESSION['login']['id_tv'];
+		  $d->reset();
+		  $d->setTable("member");
+		  $d->setWhere("id", $s_idtv);
+		  $d->select("spview");
+		  $ds_view = $d->fetch_array();
+		  if(!empty($ds_view["spview"]))
+		    $a_ds_view = explode(",", $ds_view["spview"]);
+		  $key = array_search($row_detail["id"], $a_ds_view);
+		  if(!is_null($key) && $key !== false){
+		    // unset($a_ds_view[$key]);
+		  }else{
+		  	$count = count($a_ds_view);
+  	    if($count>=20)
+  	        array_shift($a_ds_view);
+  	    $a_ds_view[] = $row_detail["id"];
+		    // array_push($a_ds_view, $row_detail["id"]);
+		  }
+		  $data = array();
+		  $data["spview"] = implode(',', $a_ds_view);
+		  $d->reset();
+		  $d->setTable("member");
+		  $d->setWhere("id", $s_idtv);
+		  $d->update($data);
+
+		  $_SESSION["spview"] = $a_ds_view;
+
 	}
 	$d->reset();
 	$sql_detail = "select * from #_product_list where hienthi=1 and id='".$row_detail['id_list']."' and type='".$type_bar."'  ";

@@ -56,7 +56,7 @@ function number_format(number, decimals, dec_point, thousands_sep) {
   		  if(price_size <=0){
   		    $(".price_load").html('Liên hệ');
         }else{
-          $(".price_load").html(number_format(price_size, 0, '.', '.')+' VNĐ');
+          $(".price_load").html(number_format(price_size, 0, '.', '.')+' đ');
           $("input[name='relsize']").val(price_size);
           $("input[name='idsize']").val(idsize);
           
@@ -73,7 +73,7 @@ function number_format(number, decimals, dec_point, thousands_sep) {
     		$("input[name='idsize']").val(idsize);
     		$("input[name='relsize']").val(price_size);
     		//alert(price_size);
-    		$(".price_load").html(number_format(price_size, 0, '.', '.')+' vnđ');
+    		$(".price_load").html(number_format(price_size, 0, '.', '.')+' đ');
 	  })
 	  
 	 
@@ -681,7 +681,7 @@ $(document).ready(function() {
                                 <div class="info_sp">
                                     <h3><a href="<?=$com?>/<?=$k['tenkhongdau']?>.html"><?=$k['ten_'.$lang]?></a></h3>
                                     <div class="giasp <?php if($k['giacu']<=0) echo 'none-price'?>">
-                                        <span><?php if($pricesize==0) echo _lienhe; else echo number_format ($pricesize,0,",",",")." VNĐ";?></span>
+                                        <span><?php if($pricesize==0) echo _lienhe; else echo number_format ($pricesize,0,",",",")." đ";?></span>
                                         <?php if($k['giacu']>0){?>
                                             <span><?=number_format ($k['giacu'],0,",",",")." đ";?></span>
                                         <?php } ?>

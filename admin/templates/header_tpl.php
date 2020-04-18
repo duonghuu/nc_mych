@@ -19,7 +19,7 @@
                
                
 
-				 <li><a href="index.php?com=order&act=man&tinhtrang=1" title="">
+				 <li><a href="index.php?com=order&act=man" title="">
 				 
 				 <span>Đơn hàng</span> <span class="numberTop" style="float:none; display:inline-block"><?=$row_giohang['num']?></span>
 				 

@@ -34,6 +34,26 @@
                 $spdaxem = $d->result_array();
             }
         }
+        if(!empty($_SESSION["spview"])){
+            $s_a_cl = ""; 
+            $last_key = key( array_slice( $_SESSION["spview"], -1, 1, TRUE ) );
+            foreach ($_SESSION["spview"] as $key => $value) {
+                if(empty($value)){
+                    continue;
+                }
+                $s_a_cl .= $value;
+                if($key<$last_key){
+                    $s_a_cl .=",";
+                }
+            }
+            if(!empty($s_a_cl)){
+                $d->reset();
+                $sql_detail = "select id,photo,thumb,ten_$lang,giaban,tenkhongdau,giacu,luotxem,luotxem+luotxem2 
+                as luotxemhd ,gia from #_product where id in (".$s_a_cl.") order by luotxemhd desc limit 0,30";
+                $d->query($sql_detail);
+                $spview = $d->result_array();
+            }
+        }
 
         if(!empty($_SESSION["splike"])){
             $s_a_cl = ""; 

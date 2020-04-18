@@ -6036,11 +6036,13 @@ div.fixmenu {
     display: flex;
     flex-flow: inherit;
     padding: 0px; }
-  .scroll {
-    overflow-y: scroll;
-    display: flex;
-    flex-flow: inherit;
-    padding: 0px; }
+    .scroll::-webkit-scrollbar {
+      -webkit-appearance: none;
+      height: 4px; }
+    .scroll::-webkit-scrollbar-thumb {
+      border-radius: 2px;
+      background-color: rgba(0, 0, 0, 0.5);
+      box-shadow: 0 0 1px rgba(255, 255, 255, 0.5); }
   .item_deal {
     min-width: calc(100% / 4);
     max-width: calc(100% / 4); }

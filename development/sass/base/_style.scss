@@ -3,7 +3,8 @@
 .clearfix{zoom:1}
 .clearfix:after{clear:both;content:"";display:block;height:0;line-height:0;visibility:hidden}
 a{text-decoration:none;}
-.margin-auto{max-width:1220px;padding:0px 10px;margin:auto;}
+.margin-auto{max-width:1220px;padding:0px 10px;margin:auto;
+}
 #header .modal{z-index:99999!important;}
 #header .modal .register{margin:10px auto;}
 #timkiem .header{display:none}
@@ -20,7 +21,9 @@ input[type='number']{color:#000;font-weight:bold;}
 
 header#header{margin:0 auto;background:var(--color-r);}
 #top_header{width:100%;height:auto;float:left;background:#e3e3e3;min-width:1200px;}
-#top_header .content_top_header{width:1200px;height:auto;margin:0px auto;padding-bottom:4px;}
+#top_header .content_top_header{width:1200px;height:auto;margin:0px auto;padding-bottom:4px;
+    
+}
 
 .bg_header_top{margin:0 auto;background:var(--color-r);height:35px;line-height:35px;}
 .menu_top_main nav ul{margin:0 auto;text-align:center;}
@@ -1006,8 +1009,19 @@ div.fixmenu{right:0px;}
  @media only screen and (max-width:1024px){
 }
  @media only screen and (max-width:992px){
-    .scroll{overflow-y:scroll;display:flex;flex-flow:inherit;padding:0px;}
-    .scroll{overflow-y:scroll;display:flex;flex-flow:inherit;padding:0px;}
+    .scroll{overflow-y:scroll;display:flex;flex-flow:inherit;padding:0px;
+        &::-webkit-scrollbar {
+          -webkit-appearance: none;
+          height: 4px; 
+        }
+
+        &::-webkit-scrollbar-thumb {
+          border-radius: 2px;
+          background-color: rgba(0, 0, 0, .5);
+          box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+        }
+    }
+    
     .item_deal{min-width:calc(100% / 4);max-width:calc(100% / 4)}
     .item_tkhd{min-width:calc(100% / 4);max-width:calc(100% / 4)}
     .item_bt_sl{min-width:calc(100% / 4);max-width:calc(100% / 4)}

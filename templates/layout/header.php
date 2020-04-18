@@ -73,13 +73,15 @@ $(function(){$(window).scroll(function(){
               				<div class="button_tim"><button type="submit" value="" class="nut_tim"><i class="fa fa-search" aria-hidden="true"></i></button></div>
               			</form>
               		</div><!--end timkiem-->
+                 <?php /* 
                   <div class="w_timkiem">
-                    <marquee onMouseOver="this.stop()" onMouseOut="this.start()" scrollamount="4">
-                      <?php foreach($tagtukhoa as $k){?>
-                        <a href="tag-tu-khoa.html&<?=$k['tenkhongdau']?>"><?=$k['ten_'.$lang]?></a>
-                      <?php } ?>
-                    </marquee>
-                  </div>
+                                     <marquee onMouseOver="this.stop()" onMouseOut="this.start()" scrollamount="4">
+                                       <?php foreach($tagtukhoa as $k){?>
+                                         <a href="tag-tu-khoa.html&<?=$k['tenkhongdau']?>"><?=$k['ten_'.$lang]?></a>
+                                       <?php } ?>
+                                     </marquee>
+                                   </div> 
+                 */?>
                 </div>
           	  
                 <div class="bn_top_right <?php if($_SESSION['login']['thanhvien']!='') echo'ss_login';?>">

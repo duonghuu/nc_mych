@@ -558,7 +558,7 @@ function get_main_sub()
              <label style="color: #f00">Màu: </label>
              <div class="formRight formRight-flex">
                  <input type="hidden" name="idgoi[]" value="<?= $value["id"] ?>"   />
-                 <input type="text" name="tengoi[]" value="<?= $value["ten_vi"] ?>"  title="Tên" class="tipS"  />
+                 <input type="text" name="tengoi[]" style="width: 100px" value="<?= $value["ten_vi"] ?>"  title="Tên" class="tipS"  />
                  <div class="icon-mau" style="    margin-right: 1em;"><img style="width: 40px;height: 40px;" src="<?= _upload_baiviet.$value["photo"] ?>" alt="icon"></div>
                  <input type="file" name="fileuptaptin[]" />
                  <a href="javascript:void(0)" data-links="upload/baiviet/" data-table="baiviet" data-id="<?= $value["id"] ?>" class="remove"><img src="images/delete1.png" alt="delete" width="20" height="20"></a>
@@ -848,7 +848,7 @@ div.uploader input{opacity: 0!important}
     <label style="color: #f00">Màu: </label>
     <div class="formRight formRight-flex">
         <input type="hidden" name="idgoi[]" value=""   />
-        <input type="text" name="tengoi[]" value=""  placeholder="Tên" title="Tên" class="tipS"  />
+        <input type="text" name="tengoi[]" style="width: 100px" value=""  placeholder="Tên" title="Tên" class="tipS"  />
         <input type="file" name="fileuptaptin[]" />
         <a href="javascript:void(0)" class="remove"><img src="images/delete1.png" alt="delete" width="20" height="20"></a>
     </div>

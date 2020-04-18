@@ -44,14 +44,14 @@
     </div>
 </div>
 <?php } ?>
-<?php if(!empty($spdaxem)){ ?>
+<?php if(!empty($spview)){ ?>
 <div class="danhmuc_pro clearfix">
     <div class="margin-auto">
         <div class="box-white">
             <h3 class="tit-web">Sản phẩm đã xem</h3>
             <div class="box-content box-pd10">
                 <div class="chay_tkhd scroll">
-                    <?php foreach($spdaxem as $k){?>
+                    <?php foreach($spview as $k){?>
                         <div class="item_tkhd">
                             <div class="product_images">
                                 <a  target="_blank" href="san-pham/<?=$k['tenkhongdau']?>.html">

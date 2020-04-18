@@ -1,6 +1,5 @@
 <?php	if(!defined('_source')) die("Error");
 $act = (isset($_REQUEST['act'])) ? addslashes($_REQUEST['act']) : "";
-
 $urldanhmuc ="";
 $urldanhmuc.= (isset($_REQUEST['id_user'])) ? "&id_user=".addslashes($_REQUEST['id_user']) : "";
 $urldanhmuc.= (isset($_REQUEST['datefm'])) ? "&id_user=".addslashes($_REQUEST['datefm']) : "";

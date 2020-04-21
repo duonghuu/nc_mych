@@ -43,7 +43,11 @@ var tipPadding= 4;
 // these go in var tip in doTooltip function
 // startStr goes before image, midStr goes between image and text
 var startStr = '<table celpadding="0" celspacing="0" border="0"><tr><td><img class="imgperview" src="';
-var midStr = '" style="max-height:500px; max-width:500px;"></td></tr></table>';
+if(js_deviceType == "computer"){
+var midStr = '" style="max-height:300px; max-width:300px;"></td></tr></table>';
+}else{
+var midStr = '" style="max-height:100px; max-width:100px;"></td></tr></table>';
+}
 
 ////////////////////////////////////////////////////////////
 //  initTip	- initialization for tooltip.

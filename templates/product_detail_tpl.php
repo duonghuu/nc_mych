@@ -455,51 +455,54 @@ $(document).ready(function() {
                             </div>
                         </li>
     
+   <?php if($row_detail['size']!=''&& $row_detail['gia']!=''){?>
+      <?php if(count($sizesp)>0){ ?>
+        <li class="chon_size w_propre">
+          <span>Chọn Size:</span>
+            <div id="span_size" class="div_wrap">
+                <?php for($j=0;$j<count($sizesp);$j++){
+                  $pricesize=str_replace(',', '', $giasp[$j]);
+                  $imghinhsize=$hinhsizesp[$j];
+
+                  $myimg = ($deviceType == "computer")? _upload_baiviet_l.'0x300x2/'.$imghinhsize :
+                   _upload_baiviet_l.'0x100x2/'.$imghinhsize;
+                  echo '<a id="size" onMouseOver="doTooltip(event,\''.$myimg.'\');" 
+                                      onMouseOut="hideTip()" style="padding: 3px;" name="size" 
+                  rel="'.$pricesize.'" data-id="'.($j+1).'" 
+                  href="javascript:;" title="'.$sizesp[$j].'" 
+                  alt="'.$sizesp[$j].'" data-rel="'.$sizesp[$j].'"
+                   class=" '.(($j==0)?'active':'').'">'.$sizesp[$j].'</a>';
+                ?>
+                <?php } ?>
+            </div>   
+        </li>
+        <input type="hidden" name="idsize" value="">
+        <input type="hidden" name="relsize" value="">
+      <?php } ?>
+  <?php } ?>
 
 
 
-                       <?php if($row_detail['size']!=''&& $row_detail['gia']!=''){?>
-                          <?php if(count($sizesp)>0){ ?>
-                            <li class="chon_size w_propre">
-                              <span>Chọn Size:</span>
-                                <div id="span_size" class="div_wrap">
-                                    <?php for($j=0;$j<count($sizesp);$j++){
-                                      $pricesize=str_replace(',', '', $giasp[$j]);
-                                      $imghinhsize=$hinhsizesp[$j];
-
-                                      $myimg = ($deviceType == "computer")? _upload_baiviet_l.'0x300x2/'.$imghinhsize : _upload_baiviet_l.'0x200x2/'.$imghinhsize;
-                                      echo '<a id="size" onMouseOver="doTooltip(event,\''.$myimg.'\');" onMouseOut="hideTip()" style="padding: 3px;" name="size" rel="'.$pricesize.'" data-id="'.($j+1).'" href="javascript:;" title="'.$sizesp[$j].'" alt="'.$sizesp[$j].'" data-rel="'.$sizesp[$j].'" class=" '.(($j==0)?'active':'').'">'.$sizesp[$j].'</a>';
-                                    ?>
-                                      <?php /* <a id="size" class="<?php if($j==0) echo'active';?>"  name="size" rel="<?=$pricesize?>" data-id="<?=$j+1?>"><?=$sizesp[$j]?></a> */?>
-                                      <?php /* <a id="size" style="padding: 3px;" name="size" rel="<?=$pricesize?>" data-id="<?=$j+1?>" href="<?=_upload_baiviet_l?>0x300x2/<?=$imghinhsize?>" data-options="zoomWidth:300px;zoomHeight:300px;" title="<?=$sizesp[$j]?>" alt="<?=$sizesp[$j]?>" data-rel='<?=$sizesp[$j]?>' class="color_sp MagicZoom <?php if($j==0) echo'active';?>"><img src="<?= _upload_baiviet_l.$imghinhsize ?>" alt="<?=$sizesp[$j]?>" style="width: 30px;height: 30px;object-fit: fill"></a> */?>
-                                      <?php /* onMouseOver="doTooltip(event,\'.$siteurl/wallpapers/thumbs/$wallpapername_$wallpaperid.jpg.\',"Image TITLE")" onMouseOut="hideTip()" */?>
-                                    <?php } ?>
-                                </div>   
-                            </li>
-                            <input type="hidden" name="idsize" value="">
-                            <input type="hidden" name="relsize" value="">
-                          <?php } ?>
-                      <?php } ?>
-
-
-                      <?php /* <?php if($row_detail['mausac']){ ?> <li class="mausp w_propre"> <span>Chọn màu:</span> <div class="div_wrap"> <?php $arr_mausac = explode('|', $row_detail['mausac']); for($i=0;$i<count($arr_mausac);$i++){?> <a alt="<?=$arr_mausac[$i]?>" data-rel='<?=$arr_mausac[$i]?>' class="color_sp <?php if($i==0) echo'active';?>"><?=$arr_mausac[$i]?></a> <?php } ?> </div> </li> <?php } ?> */?>
-
-                      <?php 
-                      if(!empty($hinhmau)){ ?>
-                        <li class="mausp w_propre">
-                          <span>Chọn màu:</span>
-                          <div class="div_wrap">
-                            <?php 
-                            foreach($hinhmau as $key=>$value){ 
-                              $myimg = ($deviceType == "computer")? _upload_baiviet_l.'0x300x2/'.$value['photo'] : _upload_baiviet_l.'0x200x2/'.$value['photo'];
-                              echo '<a style="padding: 3px; " onMouseOver="doTooltip(event,\''.$myimg.'\');" onMouseOut="hideTip()" data-toggle="tooltip" title="'.$value['ten_vi'].'" alt="'.$value['ten_vi'].'" data-rel="'.$value['ten_vi'].'" href="javascript:;" class="color_sp '.(($key==0)?'active':'').'"><img src="'. _upload_baiviet_l.$value['photo'].'" alt="'.$value['ten_vi'].'" style="width: 30px;height: 30px;object-fit: fill"></a>';
-                              ?>
-                              <?php /*<a style="padding: 3px; " href="<?=_upload_baiviet_l?>0x300x2/<?=$value['photo']?>" data-options="zoomWidth:300px;zoomHeight:300px;" data-toggle="tooltip" title="<?=$value["ten_vi"]?>" alt="<?=$value["ten_vi"]?>" data-rel='<?=$value["ten_vi"]?>' class="color_sp MagicZoom <?php if($key==0) echo'active';?>"><img src="<?= _upload_baiviet_l.$value["photo"] ?>" alt="<?=$value["ten_vi"]?>" style="width: 30px;height: 30px;object-fit: fill"> <strong style="background: url(<?= _upload_baiviet_l.$value["photo"] ?>) no-repeat;width: 30px;height: 30px;   background-size: cover; display: block; margin: 0 auto;"></strong> </a>*/?>
-                            <?php } ?>
-                          </div>
-                        </li>
-                      <?php } ?>
-
+  <?php 
+  if(!empty($hinhmau)){ ?>
+    <li class="mausp w_propre">
+      <span>Chọn màu:</span>
+      <div class="div_wrap">
+        <?php 
+        foreach($hinhmau as $key=>$value){ 
+          $myimg = ($deviceType == "computer")? _upload_baiviet_l.'0x300x2/'.$value['photo'] :
+           _upload_baiviet_l.'0x100x2/'.$value['photo'];
+          echo '<a style="padding: 3px; "  onMouseOver="doTooltip(event,\''.$myimg.'\');"
+                               onMouseOut="hideTip()"  title="'.$value['ten_vi'].'" 
+           alt="'.$value['ten_vi'].'" data-rel="'.$value['ten_vi'].'" href="javascript:;"
+            class="color_sp '.(($key==0)?'active':'').'">
+            <img src="'. _upload_baiviet_l.$value['photo'].'" alt="'.$value['ten_vi'].'"
+             style="width: 30px;height: 30px;object-fit: fill"></a>';
+          ?>
+        <?php } ?>
+      </div>
+    </li>
+  <?php } ?>
                       <div class="clear"></div>
         		          <div class="cont_sg" style="display:none;height:0px;">
                         <input type="hidden" name="ten1" class="ten1" data-rel="0">
@@ -720,7 +723,7 @@ $(document).ready(function() {
                                 <div class="info_sp">
                                     <h3><a href="<?=$com?>/<?=$k['tenkhongdau']?>.html"><?=$k['ten_'.$lang]?></a></h3>
                                     <div class="giasp <?php if($k['giacu']<=0) echo 'none-price'?>">
-                                        <span><?php if($pricesize==0) echo _lienhe; else echo number_format ($pricesize,0,",",",")." VNĐ";?></span>
+                                        <span><?php if($pricesize==0) echo _lienhe; else echo number_format ($pricesize,0,",",",")." đ";?></span>
                                         <?php if($k['giacu']>0){?>
                                             <span><?=number_format ($k['giacu'],0,",",",")." đ";?></span>
                                         <?php } ?>

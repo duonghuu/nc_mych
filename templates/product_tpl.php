@@ -57,7 +57,7 @@
                     <div class="info_sp">
                       <h3><a href="san-pham/<?=$k['tenkhongdau']?>.html"><?=$k['ten_'.$lang]?></a></h3>
                       <div class="giasp <?php if($k['giacu']<=0) echo 'none-price'?>">
-                        <span><?php if($pricesize <= 0) echo _lienhe; else echo number_format ($pricesize,0,",",",")." VNĐ";?></span>
+                        <span><?php if($pricesize <= 0) echo _lienhe; else echo number_format ($pricesize,0,",",",")." đ";?></span>
                         <?php if($k['giacu']>0){?>
                           <span><?=number_format ($k['giacu'],0,",",",")." đ";?></span>
                         <?php } ?>

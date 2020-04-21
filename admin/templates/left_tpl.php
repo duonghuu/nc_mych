@@ -17,7 +17,8 @@ if($_SESSION['login_admin']['type']=='daily' && !empty($_SESSION['login_admin'][
       <li<?php if($_GET['act']=='man_list') echo ' class="this"' ?>><a href="index.php?com=product&act=man_list&type=product">Quản lý danh mục 1</a></li>
       <li<?php if($_GET['act']=='man_cat') echo ' class="this"' ?>><a href="index.php?com=product&act=man_cat&type=product">Quản lý danh mục 2</a></li> 
       <li<?php if($_GET['act']=='man_item') echo ' class="this"' ?>><a href="index.php?com=product&act=man_item&type=product">Quản lý danh mục 3</a></li>
-      <li<?php if($_GET['act']=='man' && $_GET['com']!='order') echo ' class="this"' ?>><a href="index.php?com=product&act=man&type=product">Quản lý sản phẩm</a></li>
+      <li<?php if($_GET['act']=='man' && $_GET['com']!='order') echo ' class="this"' ?>>
+      <a href="index.php?com=product&act=man&type=product">Quản lý sản phẩm</a></li>
      <li<?php if($_GET['type']=='tggiao') echo ' class="this"' ?>><a href="index.php?com=baiviet&act=man&type=tggiao">Thời gian giao hàng</a></li>
      <?php /* <li<?php if($_GET['act']=='chonthoigian' && $_GET['com']!='order') echo ' class="this"' ?>><a href="index.php?com=product&act=chonthoigian&type=product">Chọn thời gian giao hàng</a></li> */?>
       <?php if($_SESSION['login_admin']['type']!='daily') { ?>	
@@ -35,7 +36,7 @@ if($_SESSION['login_admin']['type']=='daily' && !empty($_SESSION['login_admin'][
   </li>
 
   <li class="categories_li <?php if($_GET['com']=='order') echo ' activemenu' ?>" id="menu21">
-    <a href="index.php?com=order&act=man&tinhtrang=1" title=""><span>Đơn hàng</span></a>
+    <a href="index.php?com=order&act=man" title=""><span>Đơn hàng</span></a>
     </li>
     <ul class="sub">
       

@@ -27,7 +27,7 @@
                             <div class="info_deal">
                                 <h3><a  target="_blank" href="san-pham/<?=$k['tenkhongdau']?>.html"><?=$k['ten_'.$lang]?></a></h3>
                                 <div class="giasp <?php if($k['giacu']<=0) echo 'none-price'?>">
-                                    <span><?php if($pricesize==0) echo _lienhe; else echo number_format ($pricesize,0,",",",")." VNĐ";?></span>
+                                    <span><?php if($pricesize==0) echo _lienhe; else echo number_format ($pricesize,0,",",",")." đ";?></span>
                                     <?php if($k['giacu']>0){?>
                                         <span><?=number_format ($k['giacu'],0,",",",")." đ";?></span>
                                     <?php } ?>
@@ -71,7 +71,7 @@
                             <div class="info_deal">
                                 <h3><a  target="_blank" href="san-pham/<?=$k['tenkhongdau']?>.html"><?=$k['ten_'.$lang]?></a></h3>
                                 <div class="giasp <?php if($k['giacu']<=0) echo 'none-price'?>">
-                                    <span><?php if($pricesize==0) echo _lienhe; else echo number_format ($pricesize,0,",",",")." VNĐ";?></span>
+                                    <span><?php if($pricesize==0) echo _lienhe; else echo number_format ($pricesize,0,",",",")." đ";?></span>
                                     <?php if($k['giacu']>0){?>
                                         <span><?=number_format ($k['giacu'],0,",",",")." đ";?></span>
                                     <?php } ?>
@@ -88,6 +88,35 @@
     </div>
 </div>
 <?php } ?>
+
+<?php if($product_list_index){?>
+<div class="danhmuc_pro clearfix">
+    <div class="margin-auto">
+        <div class="box-white">
+            <h3 class="tit-web">Danh mục sản phẩm</h3>
+            <div class="box-content">
+                <div class="box-list">
+                    <div class="chay_box_list scroll">
+                        <?php foreach($product_list_index as $k =>$v){?>
+                            <div class="item_list <?php if($k==1) echo'active';?>" data-id="<?=$v['id']?>">
+                                <div class="box-show">
+                                    <a href="san-pham/<?= $v['tenkhongdau'] ?>">
+                                        <img onerror="this.src='1x1.png';" class="lazy" src="1x1.png" data-src="<?=_upload_product_l?><?=$v['thumb']?>" alt="<?=$v['ten_'.$lang]?>"><br>
+                                    <span class="ten_list"><?=$v['ten_'.$lang]?></span></a>
+                                </div>
+                            </div>
+                        <?php } ?>
+                    </div>
+                </div>
+                <div class="box-loadcat">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<?php } ?>
+
 <?php if($thoigiantu <= time() && $thoigianden >= time() ) { ?>
 <?php if($dealgiasoc){?>
 <div class="danhmuc_pro clearfix" id="deal_giasoc">
@@ -116,7 +145,7 @@
                             <div class="info_deal">
                                 <h3><a  target="_blank" href="deal-gia-soc/<?=$k['tenkhongdau']?>.html"><?=$k['ten_'.$lang]?></a></h3>
                                 <div class="giasp <?php if($k['giacu']<=0) echo 'none-price'?>">
-                                    <span><?php if($k['giaban']==0) echo _lienhe; else echo number_format ($k['giaban'],0,",",",")." VNĐ";?></span>
+                                    <span><?php if($k['giaban']==0) echo _lienhe; else echo number_format ($k['giaban'],0,",",",")." đ";?></span>
                                     <?php if($k['giacu']>0){?>
                                         <span><?=number_format ($k['giacu'],0,",",",")." đ";?></span>
                                     <?php } ?>
@@ -150,33 +179,6 @@
 
 <?php include _template."layout/block_bottom_slider.php";?> 
 
-<?php if($product_list_index){?>
-<div class="danhmuc_pro clearfix">
-    <div class="margin-auto">
-        <div class="box-white">
-            <h3 class="tit-web">Danh mục sản phẩm</h3>
-            <div class="box-content">
-                <div class="box-list">
-                    <div class="chay_box_list scroll">
-                        <?php foreach($product_list_index as $k =>$v){?>
-                            <div class="item_list <?php if($k==1) echo'active';?>" data-id="<?=$v['id']?>">
-                                <div class="box-show">
-                                    <a href="san-pham/<?= $v['tenkhongdau'] ?>">
-                                        <img onerror="this.src='1x1.png';" class="lazy" src="1x1.png" data-src="<?=_upload_product_l?><?=$v['thumb']?>" alt="<?=$v['ten_'.$lang]?>"><br>
-                                    <span class="ten_list"><?=$v['ten_'.$lang]?></span></a>
-                                </div>
-                            </div>
-                        <?php } ?>
-                    </div>
-                </div>
-                <div class="box-loadcat">
-                    
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<?php } ?>
 
 <?php if($tikiemhangdau){?>
 <div class="danhmuc_pro clearfix">
@@ -205,7 +207,7 @@
                             <div class="info_deal">
                                 <h3><a  target="_blank" href="san-pham/<?=$k['tenkhongdau']?>.html"><?=$k['ten_'.$lang]?></a></h3>
                                 <div class="giasp <?php if($k['giacu']<=0) echo 'none-price'?>">
-                                    <span><?php if($pricesize==0) echo _lienhe; else echo number_format ($pricesize,0,",",",")." VNĐ";?></span>
+                                    <span><?php if($pricesize==0) echo _lienhe; else echo number_format ($pricesize,0,",",",")." đ";?></span>
                                     <?php if($k['giacu']>0){?>
                                         <span><?=number_format ($k['giacu'],0,",",",")." đ";?></span>
                                     <?php } ?>
@@ -302,7 +304,7 @@
                                 <div class="info_sp">
                                     <h3><a  target="_blank" href="san-pham/<?=$k['tenkhongdau']?>.html"><?=$k['ten_'.$lang]?></a></h3>
                                     <div class="giasp <?php if($k['giacu']<=0) echo 'none-price'?>">
-                                        <span><?php if($pricesize==0) echo _lienhe; else echo number_format ($pricesize,0,",",",")." VNĐ";?></span>
+                                        <span><?php if($pricesize==0) echo _lienhe; else echo number_format ($pricesize,0,",",",")." đ";?></span>
                                         <?php if($k['giacu']>0){?>
                                             <span><?=number_format ($k['giacu'],0,",",",")." đ";?></span>
                                         <?php } ?>

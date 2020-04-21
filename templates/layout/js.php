@@ -1,3 +1,4 @@
+
 <script src="js/bootstrap/js/bootstrap.min.js"></script> 
 
 <?php /* <script type="text/javascript" src="js/jquery.lazyload.pack.js"></script>

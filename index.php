@@ -107,6 +107,9 @@ if($_REQUEST['command']=='add' && $_REQUEST['productid']>0){
 						height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 						<!-- End Google Tag Manager (noscript) --> */?>
 		<?=$row_setting['analytics']?>
+		<script>
+		  var js_deviceType = '<?= $deviceType ?>';
+		</script>
 	</head>
 	<body data-title="<?= $source."_"._template.$template ?>" onload="<?php if($_GET['com']=='lien-he'){ echo 'initialize()';}?>"   itemscope='itemscope' itemtype='//schema.org/WebPage'>
 		<script type="text/javascript">

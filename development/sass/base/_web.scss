@@ -42,3 +42,12 @@
         }
     }
 };
+@include media('>=768px'){
+    #popup .modal-dialog{
+        width: auto;
+        max-width: 600px;
+        img{
+            margin: 0 auto;
+        }
+    }
+};

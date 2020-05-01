@@ -412,7 +412,7 @@ function get_main_sub()
                 <div class="clear"></div>
             </div>
         <?php } ?>
-        <?php if($_GET['type']!='deal-gia-soc'){?>
+        <?php if($_GET['type']=='deal-gia-soc-xxx'){?>
             <div class="formRow lang_hidden lang_vi active">
                 <label>Tags </label>
                 <div class="formRight">
@@ -483,10 +483,12 @@ function get_main_sub()
                 <?php if($j==0){?><img class="plus plus_size" src="images/plus.png" alt="plus" width="20" height="20" /><?php }?>
                 <div class="gia ">
                     <img class="del" src="images/delete1.png" alt="delete" width="20" height="20" />
-                    <input type="text" name="size[]" autocomplete="off" value="<?=$sl[$j]?>" class="input2" placeholder="Nhập size" style="width:100px;float:left;"/> 
-                    <input type="text" autocomplete="off" name="gia[]" value="<?=$slgia[$j]?>" class="input1" placeholder="Nhập giá" style="width:100px;float:left;"/>
+                    <input type="text" name="size[]" autocomplete="off" value="<?=$sl[$j]?>" class="input2" 
+                    placeholder="Nhập size" style="width:100px;float:left;"/> 
+                    <input type="text" autocomplete="off" name="gia[]" value="<?=$slgia[$j]?>" class="input1"
+                     placeholder="Nhập giá" style="width:100px;float:left;"/>
                     <div class="icon-mau" style="    margin-right: 1em;"><img style="width: 40px;height: 40px;" src="<?= !empty($slhinh[$j]) ? _upload_baiviet.$slhinh[$j] : '1x1.png' ?>" alt="icon"></div>
-                    <input type="file" name="fileupsize[]" />
+                    <input type="file" name="fileupsize[]" style="width:100px;" />
                     <input type="hidden" name="fileupsizename[]" value="<?= $slhinh[$j] ?>" />
                 </div>
                 <div class="clear"></div>
@@ -560,7 +562,7 @@ function get_main_sub()
                  <input type="hidden" name="idgoi[]" value="<?= $value["id"] ?>"   />
                  <input type="text" name="tengoi[]" style="width: 100px" value="<?= $value["ten_vi"] ?>"  title="Tên" class="tipS"  />
                  <div class="icon-mau" style="    margin-right: 1em;"><img style="width: 40px;height: 40px;" src="<?= _upload_baiviet.$value["photo"] ?>" alt="icon"></div>
-                 <input type="file" name="fileuptaptin[]" />
+                 <input type="file" name="fileuptaptin[]" style="width: 100px" />
                  <a href="javascript:void(0)" data-links="upload/baiviet/" data-table="baiviet" data-id="<?= $value["id"] ?>" class="remove"><img src="images/delete1.png" alt="delete" width="20" height="20"></a>
              </div>
              <div class="clear"></div>
@@ -849,7 +851,7 @@ div.uploader input{opacity: 0!important}
     <div class="formRight formRight-flex">
         <input type="hidden" name="idgoi[]" value=""   />
         <input type="text" name="tengoi[]" style="width: 100px" value=""  placeholder="Tên" title="Tên" class="tipS"  />
-        <input type="file" name="fileuptaptin[]" />
+        <input type="file" name="fileuptaptin[]" style="width: 100px" />
         <a href="javascript:void(0)" class="remove"><img src="images/delete1.png" alt="delete" width="20" height="20"></a>
     </div>
     <div class="clear"></div>

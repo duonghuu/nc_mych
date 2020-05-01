@@ -156,7 +156,8 @@ if($id!=''){
 	$sql = "select ten_$lang,id,thumb,mota_$lang,giacu,giaban,tenkhongdau,gia,size,baohanh_vi,thongtin_vi,thongtin_en,thuoctinh,trongluong,rate,total,photo,gia from $where $limit";
 	$d->query($sql);
 	$page_rs = $d->result_array();
-	$sql = "select ten_$lang,id,thumb,mota_$lang,giacu,giaban,tenkhongdau,gia,size,baohanh_vi,thongtin_vi,thongtin_en,thuoctinh,trongluong,rate,total,photo,gia from $where $limit";
+	$sql = "select ten_$lang,id,thumb,mota_$lang,giacu,giaban,tenkhongdau,gia,size,baohanh_vi,thongtin_vi,
+	thongtin_en,thuoctinh,trongluong,rate,total,photo,gia,luotxem2,luotxem from $where $limit";
 	$d->query($sql);
 	$product = $d->result_array();
 	$id_listhome=$row_detail["id"];
@@ -203,7 +204,8 @@ if($id!=''){
 			$where .= " order by RAND () ";	
 		}
 	}
-	$sql = "select ten_$lang,id,thumb,mota_$lang,giacu,giaban,tenkhongdau,gia,size,baohanh_vi,thongtin_vi,thongtin_en,thuoctinh,trongluong,rate,total,photo from $where $limit";
+	$sql = "select ten_$lang,id,thumb,mota_$lang,giacu,giaban,tenkhongdau,gia,size,baohanh_vi,thongtin_vi,
+	thongtin_en,thuoctinh,trongluong,rate,total,photo,luotxem2,luotxem from $where $limit";
 	$d->query($sql);
 	$product = $d->result_array();
 	$url = getCurrentPageURL();
@@ -278,7 +280,8 @@ if($id!=''){
 	}else{
 		$where .= " order by stt,ngaytao desc ";
 	}
-	$sql = "select ten_$lang,id,thumb,mota_$lang,giacu,giaban,tenkhongdau,gia,size,baohanh_vi,thongtin_vi,thongtin_en,thuoctinh,trongluong,rate,total,photo from $where $limit";
+	$sql = "select ten_$lang,id,thumb,mota_$lang,giacu,giaban,tenkhongdau,gia,size,baohanh_vi,thongtin_vi,
+	thongtin_en,thuoctinh,trongluong,rate,total,photo,luotxem2,luotxem from $where $limit";
 	$d->query($sql);
 	$product = $d->result_array();
 	$url = getCurrentPageURL();

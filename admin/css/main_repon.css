@@ -5386,5 +5386,6 @@ table.phanquyen div.checker
 }
 .formRow .formRight.formRight-flex{    display: flex; align-items: center;}
 .formRow .formRight.formRight-flex input{ margin-right: 1em;   }
+.formRow .formRight.formRight-flex .uploader{width: 130px;}
 .gia {display: flex; align-items: center;}
 .gia .form input[type=text]{height: 26px}

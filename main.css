@@ -6611,4 +6611,11 @@ div.fixmenu {
   .likebtn.lay2 {
     margin-top: 10px; } }
 
+@media (min-width: 768px) {
+  #popup .modal-dialog {
+    width: auto;
+    max-width: 600px; }
+    #popup .modal-dialog img {
+      margin: 0 auto; } }
+
 /*# sourceMappingURL=main.css.map */

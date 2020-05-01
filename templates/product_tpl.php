@@ -35,7 +35,8 @@
             </div>
           <?php } ?>
           <div class="flex_r_sp">
-            <?php if(count($product)!=0){?>
+            <?php
+             if(count($product)!=0){?>
               <?php foreach($product as $k){?>
                 <div class="item_sp_tt">
                   <div class="bg_ff">

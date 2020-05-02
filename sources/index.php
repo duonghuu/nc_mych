@@ -81,7 +81,8 @@
     $product_list_index = $d->result_array();
 
     $d->reset();
-    $sql= "select ten_$lang,id,tenkhongdau,thumb,thumb,id_list,id_cat from #_product_item where hienthi=1 and noibat!=0 and type='product' order by stt,id desc";
+    $sql= "select ten_$lang,id,tenkhongdau,thumb,thumb,id_list,id_cat from #_product_item where 
+    hienthi=1 and noibat!=0 and type='product' order by stt,id desc";
     $d->query($sql);
     $danhmuc_nb = $d->result_array();
 

@@ -2205,6 +2205,9 @@ div.menu_top_main ul li ul li a {
   font-size: 24px;
   color: #da0000;
   margin-right: 20px; }
+  .price_load i {
+    font-weight: 400;
+    font-size: 14px; }
 
 .giamgia_detail {
   font-family: 'RobotoRegular';
@@ -4854,7 +4857,7 @@ div.fixmenu {
   position: absolute;
   top: 0px;
   right: 0px;
-  background: url(images/giamgia.png);
+  background: url("images/giamgia.png");
   width: 38px;
   height: 42px;
   font-family: 'RobotoBold';
@@ -4966,22 +4969,22 @@ h3 {
   font-weight: normal; }
 
 .flex_danhmuc_nb {
+  box-sizing: border-box;
   display: flex;
-  justify-content: space-between;
-  flex-flow: wrap;
+  flex-wrap: wrap;
   padding: 10px 20px; }
-
-.item_danhmuc {
-  width: calc((100% / 3) - 30px);
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 15px; }
-
-.item_danhmuc .img_danhmuc {
-  width: 150px; }
-
-.item_danhmuc .img_danhmuc img {
-  width: 80%; }
+  .flex_danhmuc_nb .item_danhmuc {
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    box-sizing: border-box;
+    flex: 0 0 25%;
+    margin-bottom: 15px; }
+    .flex_danhmuc_nb .item_danhmuc .img_danhmuc {
+      width: 150px; }
+      .flex_danhmuc_nb .item_danhmuc .img_danhmuc img {
+        width: 80%; }
 
 .info_danhmuc {
   width: calc(100% - 170px);
@@ -6043,23 +6046,18 @@ div.fixmenu {
       border-radius: 2px;
       background-color: rgba(0, 0, 0, 0.5);
       box-shadow: 0 0 1px rgba(255, 255, 255, 0.5); }
-  .item_deal {
-    min-width: calc(100% / 4);
-    max-width: calc(100% / 4); }
-  .item_tkhd {
-    min-width: calc(100% / 4);
-    max-width: calc(100% / 4); }
   .item_bt_sl {
     min-width: calc(100% / 4);
     max-width: calc(100% / 4); }
-  .chay_box_list .item_list {
-    min-width: calc(100% / 6);
-    max-width: calc(100% / 6); }
   .chay_detail .item_sp {
     min-width: calc(100% / 4);
     max-width: calc(100% / 4); }
   .danhmuc_mb {
-    display: block; } }
+    display: block; }
+  .chay_deal .slick-list, .chay_tkhd .slick-list {
+    padding: 0 10% 0 0; }
+  .chay_box_list .slick-list {
+    padding: 0 12% 0 0; } }
 
 @media only screen and (max-width: 918px) {
   .danhmuc_mbtt {
@@ -6223,18 +6221,9 @@ div.fixmenu {
     border-left: 0px; } }
 
 @media only screen and (max-width: 768px) {
-  .item_deal {
-    min-width: calc(100% / 3);
-    max-width: calc(100% / 3); }
-  .item_tkhd {
-    min-width: calc(100% / 3);
-    max-width: calc(100% / 3); }
   .item_bt_sl {
     min-width: calc(100% / 3);
     max-width: calc(100% / 3); }
-  .chay_box_list .item_list {
-    min-width: calc(100% / 5);
-    max-width: calc(100% / 5); }
   .chay_detail .item_sp {
     min-width: calc(100% / 3);
     max-width: calc(100% / 3); }
@@ -6257,7 +6246,7 @@ div.fixmenu {
     padding: 0px 5px;
     margin-bottom: 5px; }
   .item_sp {
-    width: calc(100% / 2); }
+    width: 33.3333333333%; }
   .item_danhmuc {
     width: calc((100% / 2) - 10px); }
   .item_sp_tt {
@@ -6282,18 +6271,9 @@ div.fixmenu {
 @media only screen and (max-width: 520px) {
   .item_cat {
     width: 50%; }
-  .item_deal {
-    min-width: calc(100% / 2);
-    max-width: calc(100% / 2); }
-  .item_tkhd {
-    min-width: calc(100% / 2);
-    max-width: calc(100% / 2); }
   .item_bt_sl {
     min-width: calc(100% / 2);
     max-width: calc(100% / 2); }
-  .chay_box_list .item_list {
-    min-width: calc(100% / 4);
-    max-width: calc(100% / 4); }
   .chay_detail .item_sp {
     min-width: calc(100% / 2);
     max-width: calc(100% / 2); } }
@@ -6327,18 +6307,9 @@ div.fixmenu {
 @media only screen and (max-width: 350px) {
   .item_cat {
     width: 100%; }
-  .item_deal {
-    min-width: calc(100% / 1);
-    max-width: calc(100% / 1); }
-  .item_tkhd {
-    min-width: calc(100% / 1);
-    max-width: calc(100% / 1); }
   .item_bt_sl {
     min-width: calc(100% / 1);
     max-width: calc(100% / 1); }
-  .chay_box_list .item_list {
-    min-width: calc(100% / 3);
-    max-width: calc(100% / 3); }
   .chay_detail .item_sp {
     min-width: calc(100% / 1);
     max-width: calc(100% / 1); } }

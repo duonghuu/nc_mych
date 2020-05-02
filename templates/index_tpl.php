@@ -6,7 +6,7 @@
         <div class="box-white">
             <h3 class="tit-web">Sản phẩm yêu thích</h3>
             <div class="box-content box-pd10">
-                <div class="chay_tkhd scroll" id="splike-box">
+                <div class="chay_tkhd" id="splike-box">
                     <?php foreach($splike as $k){?>
                         <div class="item_tkhd">
                             <div class="product_images">
@@ -50,7 +50,7 @@
         <div class="box-white">
             <h3 class="tit-web">Sản phẩm đã xem</h3>
             <div class="box-content box-pd10">
-                <div class="chay_tkhd scroll">
+                <div class="chay_tkhd">
                     <?php foreach($spview as $k){?>
                         <div class="item_tkhd">
                             <div class="product_images">
@@ -96,7 +96,7 @@
             <h3 class="tit-web">Danh mục sản phẩm</h3>
             <div class="box-content">
                 <div class="box-list">
-                    <div class="chay_box_list scroll">
+                    <div class="chay_box_list">
                         <?php foreach($product_list_index as $k =>$v){?>
                             <div class="item_list <?php if($k==1) echo'active';?>" data-id="<?=$v['id']?>">
                                 <div class="box-show">
@@ -129,7 +129,7 @@
                 <?php } ?>
             </h3>
             <div class="box-content box-pd10">
-                <div class="chay_deal scroll">
+                <div class="chay_deal">
                     <?php foreach($dealgiasoc as $k){?>
                         <div class="item_deal">
                             <div class="product_images">
@@ -186,7 +186,7 @@
         <div class="box-white">
             <h3 class="tit-web">Tìm kiếm hàng đầu</h3>
             <div class="box-content box-pd10">
-                <div class="chay_tkhd scroll">
+                <div class="chay_tkhd">
                     <?php foreach($tikiemhangdau as $k){?>
                         <div class="item_tkhd">
                             <div class="product_images">
@@ -237,7 +237,7 @@
  <!-- style="background:url(<?=_upload_hinhanh_l?><?=$banner_qc['photo_vi']?>);background-size: cover;" -->
 
 
-<?php if($danhmuc_nb){?>
+<?php if($danhmuc_nb && $deviceType == "computer"){?>
 <div class="danhmuc_pro clearfix">
     <div class="margin-auto">
         <div class="box-white">
@@ -245,7 +245,8 @@
             <div class="box-content flex_danhmuc_nb">
                 <?php foreach($danhmuc_nb as $k){
                     $d->reset();
-                    $sql= "select id from #_product where hienthi=1 and id_item='".$k['id']."' and type='product' order by stt,id desc";
+                    $sql= "select id from #_product where hienthi=1 and id_item='".$k['id']."' 
+                    and type='product' order by stt,id desc";
                     $d->query($sql);
                     $countsp = $d->result_array();
 
@@ -262,11 +263,15 @@
                 ?>
                     <div class="item_danhmuc">
                         <div class="info_danhmuc">
-                            <h3><a href="san-pham/<?=$ten_list['tenkhongdau']?>/<?=$ten_cat['tenkhongdau']?>/<?=$k['tenkhongdau']?>"><?=$k['ten_'.$lang]?></a></h3>
+                            <h3><a href="san-pham/<?=$ten_list['tenkhongdau']?>/<?=$ten_cat['tenkhongdau']?>/<?=$k['tenkhongdau']?>">
+                                <?=$k['ten_'.$lang]?></a></h3>
                             <p><?=count($countsp)?> Sản phẩm</p>
                         </div>
                         <div class="img_danhmuc">
-                            <a href="san-pham/<?=$ten_list['tenkhongdau']?>/<?=$ten_cat['tenkhongdau']?>/<?=$k['tenkhongdau']?>"><img onerror="this.src='1x1.png';" class="lazy" src="1x1.png" data-src="<?=_upload_product_l?><?=$k['thumb']?>" alt="<?=$k['ten_'.$lang]?>"></a>
+                            <a href="san-pham/<?=$ten_list['tenkhongdau']?>/<?=$ten_cat['tenkhongdau']?>/<?=$k['tenkhongdau']?>">
+                                <img onerror="this.src='1x1.png';" class="lazy"
+                                 src="1x1.png" data-src="<?=_upload_product_l?><?=$k['thumb']?>" 
+                                 alt="<?=$k['ten_'.$lang]?>"></a>
                         </div>
                     </div>
                 <?php } ?>
@@ -274,6 +279,52 @@
         </div>
     </div>
 </div>
+<?php }else{ ?>
+    <div class="danhmuc_pro clearfix">
+        <div class="margin-auto">
+            <div class="box-white">
+                <h3 class="tit-web">Danh mục nổi bật</h3>
+                <div class="box-content box-pd10">
+                    <div class="chay_tkhd">
+                        <?php foreach($danhmuc_nb as $k){
+                            $d->reset();
+                            $sql= "select id from #_product where hienthi=1 and id_item='".$k['id']."' 
+                            and type='product' order by stt,id desc";
+                            $d->query($sql);
+                            $countsp = $d->result_array();
+
+                            $d->reset();
+                            $sql= "select tenkhongdau from #_product_list where hienthi=1 and id='".$k['id_list']."' and type='product'";
+                            $d->query($sql);
+                            $ten_list = $d->fetch_array();
+
+                            $d->reset();
+                            $sql= "select tenkhongdau from #_product_cat where hienthi=1 and id='".$k['id_cat']."' and type='product'";
+                            $d->query($sql);
+                            $ten_cat = $d->fetch_array();
+                            ?>
+                            <div class="item_tkhd">
+                                <div class="product_images">
+                                    <a href="san-pham/<?=$ten_list['tenkhongdau']?>/<?=$ten_cat['tenkhongdau']?>/<?=$k['tenkhongdau']?>">
+                                        <div class="hidden_img">
+                                            <img data-src="<?=_upload_product_l?><?=$k['thumb']?>" 
+                                            alt="<?=$k['ten_'.$lang]?>"  onerror="this.src='1x1.png';"
+                                             class="lazy" src="1x1.png" >
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="info_deal">
+                                    <h3><a href="san-pham/<?=$ten_list['tenkhongdau']?>/<?=$ten_cat['tenkhongdau']?>/<?=$k['tenkhongdau']?>">
+                                        <?=$k['ten_'.$lang]?></a></h3>
+                                   <div class="luotxem"><?=count($countsp)?> Sản phẩm</div>
+                                </div>
+                            </div>
+                        <?php } ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 <?php } ?>
 
 

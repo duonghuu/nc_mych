@@ -51,12 +51,13 @@ function number_format(number, decimals, dec_point, thousands_sep) {
 
 		    price_size = $("a#size.active").attr("rel");
         idsize = $("a#size.active").attr("data-id");
+        namesize = '<i> - giá cho ' + $("a#size.active").attr("data-rel")+'</i>';
        
 
   		  if(price_size <=0){
   		    $(".price_load").html('Liên hệ');
         }else{
-          $(".price_load").html(number_format(price_size, 0, '.', '.')+' đ');
+          $(".price_load").html(number_format(price_size, 0, '.', '.')+' đ'+namesize);
           $("input[name='relsize']").val(price_size);
           $("input[name='idsize']").val(idsize);
           
@@ -72,8 +73,9 @@ function number_format(number, decimals, dec_point, thousands_sep) {
     		idsize = $(this).data("id");
     		$("input[name='idsize']").val(idsize);
     		$("input[name='relsize']").val(price_size);
+        namesize = '<i> - giá cho ' + $("a#size.active").attr("data-rel")+'</i>';
     		//alert(price_size);
-    		$(".price_load").html(number_format(price_size, 0, '.', '.')+' đ');
+    		$(".price_load").html(number_format(price_size, 0, '.', '.')+' đ'+namesize);
 	  })
 	  
 	 
@@ -406,9 +408,11 @@ $(document).ready(function() {
 
                     <li class="gia_detail <?php if($row_detail['giacu'] > 0) echo "price_old"?>">
 
-                        <div class="giacu_detail "><span><?php if($row_detail['giacu']==0) echo ""; else echo number_format ($row_detail['giacu'],0,",",".")." đ";?></span></div>
+                        <div class="giacu_detail "><span><?php if($row_detail['giacu']==0) echo ""; 
+                        else echo number_format ($row_detail['giacu'],0,",",".")." đ";?></span></div>
 
-    			              <div class="price_load"><?php if($row_detail['giaban']==0) echo "Liên Hệ"; else echo number_format ($row_detail['giaban'],0,",",".")." đ";?></div>
+    			              <div class="price_load"><?php if($row_detail['giaban']==0) echo "Liên Hệ"; 
+                        else echo number_format ($row_detail['giaban'],0,",",".")." đ";?></div>
                         <?php if($row_detail['giacu'] > 0){?>
                           <div class="giamgia_detail">Giảm <?=giamgia($row_detail['giacu'],$row_detail['giaban']);?></div>
                         <?php } ?>

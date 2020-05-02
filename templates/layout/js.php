@@ -276,9 +276,9 @@
       <?php if($product_list_index){?>
       $('.chay_box_list').slick({
         vertical:false, slidesToShow:10,  swipeToSlide:true,  autoplay:false, autoplaySpeed:3000, speed:1000, arrows:true, dots:false, responsive: [
-        {breakpoint: 992, settings: "unslick", },
-        {breakpoint: 700, settings: "unslick", },
-        {breakpoint: 500, settings: "unslick", },
+        {breakpoint: 992, settings: {arrows: false, slidesToShow:4, slidesToScroll:4, } },
+        {breakpoint: 700, settings: {arrows: false, slidesToShow:4, slidesToScroll:4, } },
+        {breakpoint: 500, settings: {arrows: false, slidesToShow:4, slidesToScroll:4, } },
         ]
       });
     <?php } ?>
@@ -292,16 +292,16 @@
     });
     $('.chay_deal').slick({
       vertical:false, slidesToShow:6, slidesToScroll:6, autoplay:false, autoplaySpeed:3000, speed:1000, arrows:true, dots:false, responsive: [
-      {breakpoint: 992, settings: "unslick", },
-      {breakpoint: 700, settings: "unslick", },
-      {breakpoint: 500, settings: "unslick", },
+      {breakpoint: 992, settings: {arrows: false, slidesToShow:3, slidesToScroll:3, } },
+      {breakpoint: 700, settings: {arrows: false, slidesToShow:3, slidesToScroll:3, } },
+      {breakpoint: 500, settings: {arrows: false, slidesToShow:3, slidesToScroll:3, } },
       ]
     });
     $('.chay_tkhd').slick({
       vertical:false, slidesToShow:6, slidesToScroll:6, autoplay:false, autoplaySpeed:3000, speed:1000, arrows:true, dots:false, responsive: [
-      {breakpoint: 992, settings: "unslick", },
-      {breakpoint: 700, settings: "unslick", },
-      {breakpoint: 500, settings: "unslick", },
+      {breakpoint: 992, settings: {arrows: false, slidesToShow:3, slidesToScroll:3, } },
+      {breakpoint: 700, settings: {arrows: false, slidesToShow:3, slidesToScroll:3, } },
+      {breakpoint: 500, settings: {arrows: false, slidesToShow:3, slidesToScroll:3, } },
       ]
 
     });

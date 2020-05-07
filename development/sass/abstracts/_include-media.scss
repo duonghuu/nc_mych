@@ -34,7 +34,11 @@
 $breakpoints: (
   'phone': 320px,
   'tablet': 768px,
-  'desktop': 1024px
+  'desktop': 1024px,
+  'mobile': $device_size_mobile,
+  'small': $device_size_small,
+  'medium': $device_size_medium,
+  'large': $device_size_large
 ) !default;
 
 

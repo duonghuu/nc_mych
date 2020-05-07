@@ -1353,8 +1353,6 @@ header#header {
 
 .r_slider {
   width: 395px;
-  display: flex;
-  flex-direction: column;
   position: relative; }
 
 .r_slider .item_banner {
@@ -1364,9 +1362,6 @@ header#header {
   width: 100%;
   height: 100%;
   object-fit: cover; }
-
-.r_slider .item_banner:last-child {
-  margin-bottom: 0px; }
 
 #loader-wrapper {
   width: 100%;
@@ -4765,6 +4760,12 @@ div.fixmenu {
   justify-content: space-between;
   display: flex;
   margin-top: 3px; }
+  @media (max-width: 425px) {
+    .giasp {
+      -webkit-flex-wrap: wrap;
+      -moz-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap; } }
 
 .giasp span:nth-child(1) {
   font-family: 'RobotoBold';
@@ -6543,6 +6544,11 @@ div.fixmenu {
   border-radius: 0;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.05); }
 
+#popup .modal-content {
+  background-color: transparent;
+  box-shadow: none;
+  border: 0; }
+
 .buy_cart {
   position: relative; }
 
@@ -6573,6 +6579,10 @@ div.fixmenu {
     content: "\f08a"; }
     .active.likebtn i:before {
       content: "\f004"; }
+  @media (max-width: 425px) {
+    .likebtn {
+      position: relative;
+      right: unset; } }
 
 @media only screen and (max-width: 918px) {
   .likebtn.lay2 {

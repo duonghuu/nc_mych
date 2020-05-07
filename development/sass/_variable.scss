@@ -63,3 +63,14 @@ $code-font-stack: 'Courier New', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono',
 /// @example scss - When using a CDN
 ///   $base-url: 'http://cdn.example.com/assets/';
 $base-url: '/' !default;
+
+$device_size_mobile   : 425px;
+$device_size_small    : 768px;
+$device_size_medium   : 992px;
+$device_size_large    : 1200px;
+
+$MB: "'<=mobile','screen'";
+$XS: "'>mobile','<small','screen'";
+$SM: "'>=small','<medium','screen'";
+$MD: "'>=medium','<large','screen'";
+$LG: "'>=large','screen'";

@@ -6,7 +6,7 @@
     $slide_s = $d->result_array();
 
     $d->reset();
-    $sql = "select photo_vi,link,thumb from #_photo where hienthi=1 and type='banner_sl' order by stt,id desc limit 0,2";
+    $sql = "select photo_vi,link,thumb from #_photo where hienthi=1 and type='banner_sl' order by stt,id desc";
     $d->query($sql);
     $banner_sl = $d->result_array();
 ?>
@@ -45,6 +45,7 @@
         </div>
     </section>
     <div class="r_slider">
+        <div class="banner_sl-main">
         <?php foreach($banner_sl as $k){?>
             <div class="item_banner">
                 <a href="<?=$k['link']?>">
@@ -52,6 +53,7 @@
                 </a>  
             </div>
         <?php } ?>
+        </div>
     </div>
 
 <?php if($source=='index') {?>

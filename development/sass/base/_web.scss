@@ -1,3 +1,10 @@
+#popup {
+    .modal-content{
+        background-color: transparent;
+        box-shadow: none;
+        border: 0;
+    }
+}
 .buy_cart{
     position: relative;
 }
@@ -27,6 +34,9 @@
             }
         }
     }
+    @include media('<=mobile'){
+        @include relative($right: unset);
+    };
 }
 @include media('<919px', 'only screen') {
     .likebtn{
@@ -43,11 +53,13 @@
     }
 };
 @include media('>=768px'){
-    #popup .modal-dialog{
-        width: auto;
-        max-width: 600px;
-        img{
-            margin: 0 auto;
+    #popup {
+        .modal-dialog{
+            width: auto;
+            max-width: 600px;
+            img{
+                margin: 0 auto;
+            }
         }
     }
 };

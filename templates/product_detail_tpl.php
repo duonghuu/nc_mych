@@ -51,7 +51,7 @@ function number_format(number, decimals, dec_point, thousands_sep) {
 
 		    price_size = $("a#size.active").attr("rel");
         idsize = $("a#size.active").attr("data-id");
-        namesize = '<i> - giá cho ' + $("a#size.active").attr("data-rel")+'</i>';
+        namesize = '<i> - giá áp dụng cho ' + $("a#size.active").attr("data-rel")+'</i>';
        
 
   		  if(price_size <=0){
@@ -73,7 +73,7 @@ function number_format(number, decimals, dec_point, thousands_sep) {
     		idsize = $(this).data("id");
     		$("input[name='idsize']").val(idsize);
     		$("input[name='relsize']").val(price_size);
-        namesize = '<i> - giá cho ' + $("a#size.active").attr("data-rel")+'</i>';
+        namesize = '<i> - giá áp dụng cho ' + $("a#size.active").attr("data-rel")+'</i>';
     		//alert(price_size);
     		$(".price_load").html(number_format(price_size, 0, '.', '.')+' đ'+namesize);
 	  })

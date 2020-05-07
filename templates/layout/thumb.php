@@ -1,7 +1,8 @@
 
 <?php
     $d->reset();
-    $sql = "select thumb,id,photo from #_product_photo where hienthi=1 and type='product' and id_product='".$row_detail['id']."' order by stt,id desc ";
+    $sql = "select thumb,id,photo from #_product_photo where hienthi=1 and type='$type_bar'
+     and id_product='".$row_detail['id']."' order by stt,id desc ";
     $d->query($sql);
     $product_photos = $d->result_array();
 ?><?php if(!empty($row_detail['photo'])){ ?>

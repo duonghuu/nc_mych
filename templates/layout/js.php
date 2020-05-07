@@ -270,7 +270,10 @@
 
      });
     <?php } ?>
+    $('.banner_sl-main').slick({
+      vertical:true, slidesToShow:2, slidesToScroll: 1, autoplay:true, autoplaySpeed:3000, speed:1000, arrows:true, dots:false
 
+    });
      
      <?php if($source=='index'){ ?>
       <?php if($product_list_index){?>

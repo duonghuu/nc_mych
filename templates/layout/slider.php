@@ -56,8 +56,10 @@
         </div>
     </div>
 
+<?php /* 
 <?php if($source=='index') {?>
 <script src="js/jssor/jssor.slider-25.2.0.min.js" type="text/javascript"></script>
 <script src="js/jssor/jssor_1_slider_init.js" type="text/javascript"></script>
 <script type="text/javascript">jssor_1_slider_init();</script>
-<?php } ?>
+<?php } ?> 
+*/?>

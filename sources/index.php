@@ -1,7 +1,7 @@
 <?php  if(!defined('_source')) die("Error");
 	//dump($_SESSION['cart']);
 	$d->reset();
-    $sql= "select ten_$lang,id,thumb,tenkhongdau,giaban,giacu,size,giacu,photo,gia from #_product where hienthi=1 and noibat<>0 and type='product' order by RAND () limit 0,36";
+    $sql= "select ten_$lang,id,thumb,tenkhongdau,giaban,giacu,size,giacu,photo,thumb,gia from #_product where hienthi=1 and noibat<>0 and type='product' order by RAND () limit 0,36";
     $d->query($sql);
     $product = $d->result_array();
 

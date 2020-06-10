@@ -38,5 +38,5 @@ jssor_1_slider_init = function() {
         $Jssor$.$AddEvent(window, "load", ScaleSlider);
         $Jssor$.$AddEvent(window, "resize", ScaleSlider);
         $Jssor$.$AddEvent(window, "orientationchange", ScaleSlider);
-        /*#endregion responsive code end*/
+        /*endregion responsive code end*/
     };

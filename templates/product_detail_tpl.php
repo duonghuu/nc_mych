@@ -1,7 +1,9 @@
 <?php //print_r($_SESSION["cart"]); ?>
+<?php /* 
 <script type="text/javascript" src="js/ImageTooltip.js"></script>
 <link href="js/magiczoomplus/magiczoomplus.css" rel="stylesheet" type="text/css" media="screen"/>
-<script src="js/magiczoomplus/magiczoomplus.js" type="text/javascript"></script>
+<script src="js/magiczoomplus/magiczoomplus.js" type="text/javascript"></script> 
+*/?>
   <?php 
       $d->reset();
       $sql="select ten,id from #_place_city where id order by stt,id asc";

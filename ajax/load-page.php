@@ -46,7 +46,7 @@
 	                		<div class="zoom">
 	                        	<div class="hidden_img">';
 	                            $result.='<a  target="_blank" href="san-pham/'.$k['tenkhongdau'].'.html">';
-	                                  $result.='<img onerror="this.src=\'1x1.png\';" class="lazy" src="1x1.png" data-src="'._upload_product_l.'475x500x2/'.$k['photo'].'" alt="'.$k['ten_'.$lang].'"';
+	                                  $result.='<img onerror="this.src=\'1x1.png\';" class="lazy" src="'._upload_product_l.$k['thumb'].'" alt="'.$k['ten_'.$lang].'"';
 	                                  //$result.='onerror="this.src='.$error_img.';">';
 	                                  	if($k['giacu'] > 0){
 	                                        $result.='<span class="giamgia">'.giamgia($k['giacu'],$k['giaban']).'</span>';

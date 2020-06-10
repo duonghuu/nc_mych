@@ -33,24 +33,27 @@
 	
 ?>
 
+<?php /* 
 <script type='text/javascript'>
-$(function(){$(window).scroll(function(){
-      if($('body').width() > 992) {           
-        if ($(this).scrollTop() > 80) {
-          $(".nav-header-top").addClass("header-fixed");
-        } else {
-          $(".nav-header-top").removeClass("header-fixed");
-        }              
-      }            
-                     
-        if($(this).scrollTop()!=0){$('#bttop1').fadeIn();}
-        else { $('#bttop1').fadeOut();}
-        });
-        
-         $('#bttop1').click(function(){$('body,html').animate({scrollTop:0},800);
-         });
+$(function(){
+  $(window).scroll(function(){
+    if($('body').width() > 992) {           
+      if ($(this).scrollTop() > 80) {
+        $(".nav-header-top").addClass("header-fixed");
+      } else {
+        $(".nav-header-top").removeClass("header-fixed");
+      }              
+    }            
+    
+    if($(this).scrollTop()!=0){$('#bttop1').fadeIn();}
+    else { $('#bttop1').fadeOut();}
+  });
+  
+  $('#bttop1').click(function(){$('body,html').animate({scrollTop:0},800);
 });
-</script>
+});
+</script> 
+*/?>
 
 
 <div id="middle_header" class="nav-header-top clearfix">
@@ -121,7 +124,9 @@ $(function(){$(window).scroll(function(){
 </div>
 
 
-<script language="javascript" src="js/my_script.js"></script>
+<?php /* 
+<script language="javascript" src="js/my_script.js"></script> 
+
 <script language="javascript">
 function js_submit(){
   if(isEmpty(document.getElementById('email'), "Xin nhập email.")){
@@ -180,6 +185,7 @@ function js_submit_dn(){
   document.form_login.submit();
 }
 </script>
+*/?>
 <!-- Modal -->
 <div class="pop" id="pop-login" style="display: none;">
     <div class="box-login w_user"> 

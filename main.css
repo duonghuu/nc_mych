@@ -1625,7 +1625,7 @@ header#header {
   font-weight: normal;
   color: #353535;
   padding-left: 20px;
-  background: url(images/style.png) no-repeat 5px 17px; }
+  background: url("images/style.png") no-repeat 5px 17px; }
 
 #right .box_right ul li:hover a {
   color: #F00;
@@ -1952,7 +1952,7 @@ div.menu_top_main ul li ul li a {
   height: 4px;
   width: 100%;
   min-width: 1000px;
-  background: url(images/title_before.png) no-repeat top left;
+  background: url("images/title_before.png") no-repeat top left;
   background-size: 100% 100%; }
 
 .thanh_title h2 {
@@ -2427,7 +2427,7 @@ div.max_quangcao img {
   width: 100%;
   float: left;
   padding: 36px 0px 67px 0px;
-  background: url(images/bg_dmbt.jpg) no-repeat bottom center;
+  background: url("images/bg_dmbt.jpg") no-repeat bottom center;
   background-color: #f3f8fe; }
 
 #video {
@@ -2436,7 +2436,7 @@ div.max_quangcao img {
 
 #video_load {
   margin: 0px 0px 0px 0px;
-  background: url(images/bg_pro.png) repeat;
+  background: url("images/bg_pro.png") repeat;
   width: 100%;
   float: left; }
 
@@ -2485,7 +2485,7 @@ ul {
   padding: 0px; }
 
 #icon {
-  background: url(images/gach_menu.png) no-repeat right; }
+  background: url("images/gach_menu.png") no-repeat right; }
 
 .yahoo {
   width: 100%;
@@ -2521,7 +2521,7 @@ ul {
   color: #008810;
   font-weight: bold;
   padding: 7px 0px 10px 50px;
-  background: url(images/email.png) no-repeat 10px 0px; }
+  background: url("images/email.png") no-repeat 10px 0px; }
 
 .tintuc {
   width: 100%;
@@ -2577,7 +2577,7 @@ ul {
   float: left;
   padding: 2px 0px 2px 30px;
   color: #333;
-  background: url(images/sao.png) no-repeat 10px 7px; }
+  background: url("images/sao.png") no-repeat 10px 7px; }
 
 .tinkhac li a:hover {
   color: #036CAF; }
@@ -2586,7 +2586,7 @@ ul {
   width: 193px;
   float: left;
   border: 1px solid #FF8A00;
-  background: url(images/left_cham.png) repeat-y; }
+  background: url("images/left_cham.png") repeat-y; }
 
 .paging {
   text-align: center; }
@@ -2729,7 +2729,7 @@ ul.pagination a:hover, ul.pagination a.current {
   font-family: 'UTMHelvetIns'; }
 
 .online {
-  background: url(images/muiten.png) no-repeat 10px 12px;
+  background: url("images/muiten.png") no-repeat 10px 12px;
   color: #FFF; }
 
 .online span {
@@ -2753,7 +2753,7 @@ ul.pagination a:hover, ul.pagination a.current {
   color: #333333;
   font-weight: bold;
   font-size: 20px;
-  background: url(images/hotline_l.png) no-repeat 0px 5px;
+  background: url("images/hotline_l.png") no-repeat 0px 5px;
   padding: 0px 0px 0px 80px;
   border-bottom: 1px solid #e6e6e6; }
 
@@ -2791,7 +2791,7 @@ ul.pagination a:hover, ul.pagination a.current {
   width: auto;
   float: right;
   font-size: 11px;
-  background: url(images/sao.png) no-repeat 0px 3px;
+  background: url("images/sao.png") no-repeat 0px 3px;
   padding-left: 20px;
   text-align: center; }
 
@@ -2806,7 +2806,7 @@ ul.pagination a:hover, ul.pagination a.current {
   width: 100%;
   float: left;
   margin: 0px 0px 10px 0px;
-  background: url(images/title_bt.png);
+  background: url("images/title_bt.png");
   padding: 0px 0px 0px 20px; }
 
 .thanh_bottom h4 {
@@ -2876,7 +2876,7 @@ ul.pagination a:hover, ul.pagination a.current {
 .dathang_detail .thanhtoannhanh {
   width: 239px;
   float: left;
-  background: url(images/thanhtoannhanh.png) no-repeat;
+  background: url("images/thanhtoannhanh.png") no-repeat;
   height: 46px;
   font-weight: bold;
   text-transform: uppercase;
@@ -2887,7 +2887,7 @@ ul.pagination a:hover, ul.pagination a.current {
 .dathang_detail .muangay {
   width: 177px;
   float: left;
-  background: url(images/thanhtoan.png) no-repeat;
+  background: url("images/thanhtoan.png") no-repeat;
   height: 46px;
   font-weight: bold;
   text-transform: uppercase;
@@ -2911,7 +2911,7 @@ ul.pagination a:hover, ul.pagination a.current {
   width: 100%;
   float: left;
   padding: 5px 0px 10px 30px;
-  background: url(images/giohan.png) no-repeat 0px 5px;
+  background: url("images/giohan.png") no-repeat 0px 5px;
   color: #333;
   font-style: italic; }
 
@@ -2956,7 +2956,7 @@ ul.pagination a:hover, ul.pagination a.current {
 
 .khuyenmai_detail ul li {
   padding: 5px 0px 5px 20px;
-  background: url(images/muiten_detail.png) no-repeat 0px 11px;
+  background: url("images/muiten_detail.png") no-repeat 0px 11px;
   color: #008c00; }
 
 .khung_km {
@@ -2979,7 +2979,7 @@ ul.pagination a:hover, ul.pagination a.current {
   color: #333;
   padding: 0px 10px 0px 5px;
   float: left;
-  background: url(images/muiten_trong.png) no-repeat right; }
+  background: url("images/muiten_trong.png") no-repeat right; }
 
 .dieuhuong a:hover {
   color: #007597; }
@@ -3000,7 +3000,7 @@ ul.pagination a:hover, ul.pagination a.current {
 
 .thanhsp h2:before {
   content: "";
-  background: url(images/after.png) no-repeat;
+  background: url("images/after.png") no-repeat;
   height: 18px;
   float: left;
   width: 139px;
@@ -3008,7 +3008,7 @@ ul.pagination a:hover, ul.pagination a.current {
 
 .thanhsp h2:after {
   content: "";
-  background: url(images/after.png) no-repeat;
+  background: url("images/after.png") no-repeat;
   height: 18px;
   float: right;
   width: 139px;
@@ -3054,7 +3054,7 @@ ul.pagination a:hover, ul.pagination a.current {
 
 .tin_tuc h2 {
   display: inline-block;
-  background: url(images/thanhsp.png) no-repeat;
+  background: url("images/thanhsp.png") no-repeat;
   height: 64px;
   background-size: 100% 100%;
   padding: 10px 80px 0px 80px;
@@ -3101,7 +3101,7 @@ ul.pagination a:hover, ul.pagination a.current {
   float: left;
   padding: 20px 10px 20px 160px;
   color: #fff;
-  background: url(images/giaohang.png) no-repeat 0px 10px;
+  background: url("images/giaohang.png") no-repeat 0px 10px;
   border-right: 1px solid #0081b4; }
 
 .giaohang_tn h4 {
@@ -3304,7 +3304,7 @@ ul.ul_top_footer li:hover a {
   padding-top: 40px; }
 
 #footer .top_footer .box_top_footer .content_top_footer .top_footer_right .hotline_footer {
-  background: url(images/bg_hotline.png) no-repeat center center;
+  background: url("images/bg_hotline.png") no-repeat center center;
   font-family: 'RobotoCondensedRegular';
   font-size: 28px;
   color: #FFF;
@@ -3448,7 +3448,7 @@ ul.ul_top_footer li:hover a {
 #copy {
   width: 100%;
   float: left;
-  background: url(images/bottom.png);
+  background: url("images/bottom.png");
   height: 40px;
   line-height: 40px;
   text-align: center; }
@@ -3691,7 +3691,7 @@ ul.ul_top_footer li:hover a {
   float: right; }
 
 .hotline_top {
-  background: url(images/hotline.png) no-repeat 20px 0px;
+  background: url("images/hotline.png") no-repeat 20px 0px;
   height: 60px;
   padding: 0px 0px 0px 90px;
   float: left;
@@ -3712,7 +3712,7 @@ ul.ul_top_footer li:hover a {
 .tienich {
   width: 214px;
   float: left;
-  background: url(images/tienich.png) no-repeat 15px 15px;
+  background: url("images/tienich.png") no-repeat 15px 15px;
   height: 140px; }
 
 .soluong {
@@ -6251,7 +6251,7 @@ div.fixmenu {
   .item_danhmuc {
     width: calc((100% / 2) - 10px); }
   .item_sp_tt {
-    width: calc(100% / 2); }
+    width: calc(100% / 3); }
   .flex_product_detail {
     padding: 10px; }
   .flex_ft_mb {
@@ -6273,9 +6273,6 @@ div.fixmenu {
   .item_cat {
     width: 50%; }
   .item_bt_sl {
-    min-width: calc(100% / 2);
-    max-width: calc(100% / 2); }
-  .chay_detail .item_sp {
     min-width: calc(100% / 2);
     max-width: calc(100% / 2); } }
 

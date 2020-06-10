@@ -192,7 +192,8 @@
                             <div class="product_images">
                                 <a  target="_blank" href="san-pham/<?=$k['tenkhongdau']?>.html">
                                     <div class="hidden_img">
-                                        <img data-src="<?=_upload_product_l?>475x500x2/<?=$k['photo']?>" alt="<?=$k['ten_'.$lang]?>"  onerror="this.src='1x1.png';" class="lazy" src="1x1.png" >
+                                        <img data-lazy="<?=_upload_product_l?><?=$k['thumb']?>" alt="<?=$k['ten_'.$lang]?>" 
+                                         onerror="this.src='1x1.png';" src="1x1.png" >
                                         <?php if($k['giacu'] > 0){?>
                                             <span class="giamgia"><?=giamgia($k['giacu'],$k['giaban'])?></span>
                                         <?php } ?>
@@ -340,7 +341,10 @@
                                 <div class="zoom">
                                     <div class="hidden_img">
                                         <a target="_blank" href="san-pham/<?=$k['tenkhongdau']?>.html">
-                                            <img onerror="this.src='1x1.png';" class="lazy" src="1x1.png"  data-src="<?=_upload_product_l?>475x500x2/<?=$k['photo']?>" alt="<?=$k['ten_'.$lang]?>">
+                                            <?php /* 
+                                            <img onerror="this.src='1x1.png';" class="lazy" data-src="<?=_upload_product_l?>475x500x2/<?=$k['photo']?>" alt="<?=$k['ten_'.$lang]?>"> 
+                                            */?>
+                                            <img onerror="this.src='1x1.png';" class="lazy" src="<?=_upload_product_l?><?=$k['thumb']?>" alt="<?=$k['ten_'.$lang]?>">
                                             <?php if($k['giacu'] > 0){?>
                                                 <span class="giamgia"><?=giamgia($k['giacu'],$k['giaban'])?></span>
                                             <?php } ?>

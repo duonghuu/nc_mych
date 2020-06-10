@@ -5,7 +5,9 @@
     $popup = $d->fetch_array();
     
 ?>
-<script type="text/javascript" src="js/bootstrap/js/bootstrap.min.js"></script>
+<?php /* 
+<script type="text/javascript" src="js/bootstrap/js/bootstrap.min.js"></script> 
+*/?>
 <script type="text/javascript">
 	$().ready(function(){
     if($('body').width() > 992){
